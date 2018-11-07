@@ -16,5 +16,16 @@ namespace GWhub
         {
             InitializeComponent();
         }
+
+        OpenFileDialog ofd = new OpenFileDialog();
+
+        private void FileBtn_Click(object sender, EventArgs e)
+        {
+            ofd.Filter = "TXT|*.txt";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                FilePathTxt.Text = ofd.FileName;
+            }
+        }
     }
 }

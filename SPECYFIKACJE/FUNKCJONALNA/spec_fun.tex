@@ -1,0 +1,55 @@
+\documentclass[a4paper,11pt]{article}
+\newcommand\tab[1][0.6cm]{\hspace*{#1}}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{ \sc{Specyfikacja funkcjonalna} \\
+\emph{Projekt indywidualny} }
+
+\author{Łukasz Knigawka}
+
+\begin{document}
+
+
+
+\maketitle
+
+\thispagestyle{empty}
+
+\tableofcontents
+
+\newpage
+
+\section{Wstęp teoretyczny}
+
+\tab Wymianę waluty rozumiemy jako zamianę określonej kwoty w jednej walucie na kwotę w drugiej walucie. Wysokość kwoty waluty wynikowej jest zależna od kursu walutowego dla tych walut. Kurs walutowy jest ceną danej waluty wyrażoną w innej walucie. W opisywanym przypadku wymiana waluty nie odbywa się za darmo, a opłata za wymianę ma charakter procentowej wartości od wymienionej kwoty lub może być stałą opłatą manipulacyjną. W przypadku występowania opłaty stałej, jest ona zawsze wyrażana w walucie docelowej.
+\\\tab Arbitraż rozumiemy dalej jako kombinację, w której kursy walut są tak ułożone, że wymiana waluty, w której waluta początkowa jest tożsama z walutą końcową, zwraca więcej niż kwota wejściowa.
+
+\section{Funkcje programu}
+
+\tab Program posiada dwie główne funkcje:
+\begin{enumerate}
+\item Wykrywanie korzystnej ścieżki wymiany waluty dla wskazanej waluty
+\item Wykrywanie sytuacji ekonomicznego arbitrażu
+\end{enumerate}
+
+\section{Opis wejścia i wyjścia}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm] a
+\caption{Fragment okna programu}
+\label{fig:obrazek 1}
+\end{figure}
+
+\section{Sytuacje wyjątkowe}
+
+\end{document}
