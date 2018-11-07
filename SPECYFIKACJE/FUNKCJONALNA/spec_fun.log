@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.22)  7 NOV 2018 12:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.22)  7 NOV 2018 22:19
 entering extended mode
 **./spec_fun.tex
 (spec_fun.tex
@@ -658,7 +658,14 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box30
 \@float@everytoks=\toks25
 \@floatcapt=\box31
-) (spec_fun.aux)
+) (spec_fun.aux
+
+LaTeX Warning: Label `fig:obrazek 1' multiply defined.
+
+
+LaTeX Warning: Label `fig:obrazek 1' multiply defined.
+
+)
 \openout1 = `spec_fun.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -676,8 +683,7 @@ LaTeX Font Info:    ... okay on input line 19.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 19.
-
-("D:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
+ ("D:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \AtBeginShipoutBox=\box32
@@ -761,34 +767,34 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 24.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 22.
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 24.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 22.
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 24.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 22.
 
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 24.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 22.
 
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 24.
+(Font)              <12> on input line 22.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 24.
+(Font)              <8> on input line 22.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 24.
+(Font)              <6> on input line 22.
  (spec_fun.toc)
 \tf@toc=\write4
 \openout4 = `spec_fun.toc'.
@@ -796,50 +802,119 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [1
 
 {C:/Users/Łukasz Knigawka/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 43.
+
+("D:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 43.
 <a.png, id=34, 395.67825pt x 324.61275pt>
 File: a.png Graphic file (type png)
 <use a.png>
-Package pdftex.def Info: a.png  used on input line 48. on input line 48.
+Package pdftex.def Info: a.png  used on input line 60. on input line 60.
 Package pdftex.def Info: Requested size: 426.79134pt x 350.1555pt on input line
- 48.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 55.
+ 60.
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 65--77
 
-[2pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--77
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--77
+
+ []
+
+<b.png, id=43, 567.3195pt x 355.92975pt>
+File: b.png Graphic file (type png)
+<use b.png>
+Package pdftex.def Info: b.png  used on input line 80. on input line 80.
+Package pdftex.def Info: Requested size: 426.79134pt x 267.7613pt on input line
+ 80.
+[3pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.55 \end{document}
-                    <./a.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 55.
+l.84 
+      <./a.png>]
+<c.png, id=50, 395.67825pt x 324.61275pt>
+File: c.png Graphic file (type png)
+<use c.png>
+Package pdftex.def Info: c.png  used on input line 89. on input line 89.
+Package pdftex.def Info: Requested size: 426.79134pt x 350.1555pt on input line
+ 89.
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--100
+
+ []
+
+[4pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.100 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.100 
+       <./b.png> <./c.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 106.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 106.
  (spec_fun.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 55.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 55.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 106.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 106.
 Package rerunfilecheck Info: File `spec_fun.out' has not changed.
 (rerunfilecheck)             Checksum: A69FCD970DC118E8824A341021384869;217.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 55.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 106.
  ) 
 Here is how much of TeX's memory you used:
- 8602 strings out of 493312
- 121290 string characters out of 3138864
- 219925 words of memory out of 3000000
- 12023 multiletter control sequences out of 15000+200000
- 40787 words of font info for 34 fonts, out of 3000000 for 9000
+ 8637 strings out of 493312
+ 121742 string characters out of 3138864
+ 221986 words of memory out of 3000000
+ 12047 multiletter control sequences out of 15000+200000
+ 45353 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,6n,32p,563b,336s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<D:/Program Files/M
-iKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><D:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmbx12.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
-csc10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><D:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><D:/Program Files/MiKTeX 2
-.9/fonts/type1/public/lm/lmri12.pfb>
-Output written on spec_fun.pdf (2 pages, 182273 bytes).
+{D:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{D:/Program Files/M
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<D:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/lm/lmbx10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
+bx12.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><D:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><D:/Program Files/MiKTeX 
+2.9/fonts/type1/public/lm/lmr12.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/lm/lmri10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pf
+b><D:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
+Output written on spec_fun.pdf (5 pages, 308293 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 11 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 94 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 500000)
+ 48 words of extra memory for PDF output out of 10000 (max. 10000000)
 

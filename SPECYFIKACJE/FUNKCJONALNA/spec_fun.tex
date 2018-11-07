@@ -18,8 +18,6 @@
 
 \begin{document}
 
-
-
 \maketitle
 
 \thispagestyle{empty}
@@ -40,16 +38,69 @@
 \item Wykrywanie korzystnej ścieżki wymiany waluty dla wskazanej waluty
 \item Wykrywanie sytuacji ekonomicznego arbitrażu
 \end{enumerate}
+\tab Użytkownik otrzymuje powyższe główne funkcje dzięki poniższym funkcjom pomocniczym:
+\begin{itemize}
+\item Wybranie sposobu podania danych wejściowych 
+\item Wpisanie danych wejściowych w pole tekstowe 
+\item Podanie ścieżki do pliku z danymi wejściowymi
+\item Wybranie oczekiwanego działania programu, to jest jednej funkcji głównej bądź obu
+\item Wprowadzenie wielkości środków pieniężnych do korzystnej wymiany
+\item Wprowadzenie waluty wyjściowej dla korzystnej wymiany walutowej
+\item Wprowadzenie wielkości środków pieniężnych do wyszukania arbitrażu
+\item Wypisanie wyników działania programu w polu wynikowym
+\item Obsługa możliwych błędów oraz informowanie o ich rodzajach
+\end{itemize}
 
 \section{Opis wejścia i wyjścia}
+
+\tab Komunikacja użytkownika z programem odbywa się przy pomocy interfejsu graficznego. Poniżej przedstawiono prototyp okna głównego programu.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=15cm] a
-\caption{Fragment okna programu}
+\caption{Okno programu}
 \label{fig:obrazek 1}
 \end{figure}
 
+\tab Użytkownik decyduje o sposobie podania danych wejściowych do programu. Do wyboru są dwie opcje, nie można wybrać obu równocześnie. Sposób formatowania pliku wejściowego tekstowego oraz danych wejściowych podanych poprzez okno programu nie różni się w żaden sposób. Przykładowe przedstawienie danych wejściowych: 
+\\\\\textit{\tab 0 EUR euro
+\\\tab 1 GBP funt brytyjski
+\\\tab 2 USD dolar amerykański
+\\\\\tab 0 EUR GBP 0,8889 PROC 0,0001
+\\\tab 1 GBP USD 1,2795 PROC 0
+\\\tab 2 EUR USD 1,1370 STAŁA 0.025
+\\\tab 3 USD EUR 0,8795 STAŁA 0.01
+}
+\\\\\tab W pierwszej kolejności należy podać występujące waluty. Tak jak zaprezentowano powyżej, po identyfikatorze waluty należy podać jej skrót (trzyliterowy kod pisany wielkimi literami) oraz pełną nazwę.
+\\Następnie należy podać możliwe wymiany walutowe. Po identyfikatorze wymiany należy podać skrót waluty wymienianej, skrót waluty będącej produktem wymiany, kurs wymiany, rodzaj opłaty za wymianę oraz jej wartość liczbową.
+\\\tab W przypadku wybrania opcji podawania danych wejściowych przy pomocy pliku tekstowego, to jest po kliknięciu przycisku \textit{Open file}, pojawia się okno dialogowe, umożliwiające wybór pliku. Nie ma możliwości wyboru pliku innego niż plik tekstowy. Użytkownik nie zobaczy w wyświetlonym oknie-eksploratorze plików innych niż pliki tekstowe. Na \textit{Rysunku 2} przedstawiono przykład takiej sytuacji.  
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm] b
+\caption{Okno dialogowe służące załadowaniu pliku wejściowego}
+\label{fig:obrazek 1}
+\end{figure}
+
+\tab Na \textit{Rysunku 3} przedstawiono okno główne programu po wybraniu pliku wejściowego tekstowego. W polu tekstowym pojawiła się ścieżka do tego pliku.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm] c
+\caption{Okno programu po wybraniu pliku wejściowego}
+\label{fig:obrazek 1}
+\end{figure}
+
+\tab Użytkownik proszony jest także o wybór oczekiwanego rodzaju wyniku. Wynik ten pojawi się w nieedytowalnym polu tekstowym umieszczonym na dole okna głównego programu. Niezbędne jest także podanie wartości pieniężnej waluty wymienianej i rodzaju waluty wyjściowej w przypadku poszukiwania korzystnej ścieżki wymiany, albo wartości pieniężnej dla której poszukujemy arbitrażu.\\
+Przykładowy wynik działania programu w przypadku wybrania trybu najkorzystniejszej wymiany waluty:\\\\
+\textit{1000 EUR -> GBP -> USD -> 1137,34755 USD}\\\\
+Wynik ten zawiera wartość pieniężną początkową wymienianą i jej walutę, następnie szereg walut pośrednich, a także wartość pieniężną końcową oraz jej walutę. \\Przykładowy wynik działania programu w przypadku wybrania trybu wyszukania dowolnego arbitrażu:\\\\
+\textit{1000 EUR -> GBP -> USD -> EUR -> 1000,297170225 EUR}\\\\
+W takim przypadku wynik zawiera wartość pieniężną początkową i jej walutę, następnie szereg walut pośrednich, a także wartość pieniężną końcową przedstawioną we wcześniej przedstawionej walucie początkowej.
+
 \section{Sytuacje wyjątkowe}
+
+\tab Częścią programu jest obsługa sytuacji wyjątkowych i błędów. Poniżej znajduje się lista problemów, jakie może napotkać program oraz jego reakcje.
+
 
 \end{document}
