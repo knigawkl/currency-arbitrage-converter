@@ -62,18 +62,22 @@
 \label{fig:obrazek 1}
 \end{figure}
 
-\tab Użytkownik decyduje o sposobie podania danych wejściowych do programu. Do wyboru są dwie opcje, nie można wybrać obu równocześnie. Sposób formatowania pliku wejściowego tekstowego oraz danych wejściowych podanych poprzez okno programu nie różni się w żaden sposób. Przykładowe przedstawienie danych wejściowych: 
-\\\\\textit{\tab 0 EUR euro
+\tab Użytkownik decyduje o sposobie podania danych wejściowych do programu. Do wyboru są dwie opcje, nie można wybrać obu równocześnie. Sposób formatowania pliku wejściowego tekstowego oraz danych wejściowych podanych poprzez okno programu nie różni się w żaden sposób. Przykładowe przedstawienie danych wejściowych:
+ 
+\textit{
+\\\tab \# Waluty (id | symbol | pełna nazwa)
+\\\tab 0 EUR euro
 \\\tab 1 GBP funt brytyjski
 \\\tab 2 USD dolar amerykański
-\\\\\tab 0 EUR GBP 0,8889 PROC 0,0001
+\\\tab \# Kursy walut (id | symbol (waluta wejściowa) | symbol (waluta wyjściowa) | kurs | typ opłaty | opłata
+\\\tab 0 EUR GBP 0,8889 PROC 0,0001
 \\\tab 1 GBP USD 1,2795 PROC 0
 \\\tab 2 EUR USD 1,1370 STAŁA 0.025
 \\\tab 3 USD EUR 0,8795 STAŁA 0.01
 }
-\\\\\tab W pierwszej kolejności należy podać występujące waluty. Tak jak zaprezentowano powyżej, po identyfikatorze waluty należy podać jej skrót (trzyliterowy kod pisany wielkimi literami) oraz pełną nazwę.
-\\Następnie należy podać możliwe wymiany walutowe. Po identyfikatorze wymiany należy podać skrót waluty wymienianej, skrót waluty będącej produktem wymiany, kurs wymiany, rodzaj opłaty za wymianę oraz jej wartość liczbową.
-\\\tab W przypadku wybrania opcji podawania danych wejściowych przy pomocy pliku tekstowego, to jest po kliknięciu przycisku \textit{Open file}, pojawia się okno dialogowe, umożliwiające wybór pliku. Nie ma możliwości wyboru pliku innego niż plik tekstowy. Użytkownik nie zobaczy w wyświetlonym oknie-eksploratorze plików innych niż pliki tekstowe. Na \textit{Rysunku 2} przedstawiono przykład takiej sytuacji.  
+\\\\\tab W pierwszej kolejności należy podać występujące waluty. Tak jak zaprezentowano powyżej, należy podać identyfikator waluty, następnie jej skrót (trzyliterowy kod pisany wielkimi literami) oraz pełną nazwę.
+\\Następnie należy podać możliwe wymiany walutowe. Po identyfikatorze wymiany należy podać skrót waluty wymienianej, skrót waluty będącej produktem wymiany, kurs wymiany, rodzaj opłaty za wymianę oraz jej wartość liczbową. Możliwe rodzaje opłaty za wymianę to \textit{PROC} oraz \textit{STAŁA}. Przed podaniem występujących walut oraz przed podaniem wymian należy umieścić dokładnie taki schemat opisu jak na \textit{Rysunku 1}. Nie należy w pliku wejściowym umieszczać jakichkolwiek innych informacji.
+\\\tab W przypadku wybrania opcji podawania danych wejściowych przy pomocy pliku tekstowego, to jest po kliknięciu przycisku \textit{Open file}, pojawia się okno dialogowe, umożliwiające wybór pliku. Nie ma możliwości wyboru pliku innego niż plik tekstowy. Użytkownik nie zobaczy w wyświetlonym oknie-eksploratorze plików innych niż pliki tekstowe, co przedstawiono na \textit{Rysunku 2}.  
 
 \begin{figure}[H]
 \centering
@@ -100,7 +104,26 @@ W takim przypadku wynik zawiera wartość pieniężną początkową i jej walut�
 
 \section{Sytuacje wyjątkowe}
 
-\tab Częścią programu jest obsługa sytuacji wyjątkowych i błędów. Poniżej znajduje się lista problemów, jakie może napotkać program oraz jego reakcje.
+\tab Częścią programu jest obsługa sytuacji wyjątkowych i błędów. Poniżej znajduje się lista problemów, jakie może napotkać program oraz jego reakcje. Sytuacje te podzielić można na kilka grup:
+\\\begin{enumerate}
+\item Sytuacje związane z danymi wejściowymi
+\begin{itemize}
+\item Gdy zabraknie schematu opisu, wyświetlone zostanie okno dialogowe z informacją o braku schematu opisu
+\item Gdy zabraknie \textit{identyfikatora waluty/symbolu waluty/pełnej nazwy waluty}, wyświetlone zostanie okno dialogowe z informacją o braku \textit{identyfikatora waluty/symbolu waluty/pełnej nazwy waluty} 
+\item Gdy zabraknie \textit{identyfikatora kursu, symbolu waluty wejściowej, symbolu waluty wyjściowej, kursu, typu opłaty lub opłaty}, wyświetlone zostanie okno dialogowe z informacją o braku \textit{identyfikatora kursu, symbolu waluty wejściowej, symbolu waluty wyjściowej, kursu, typu opłaty lub opłaty}
+
+\end{itemize}
+\item Sytuacje związane z plikiem wejściowym tekstowym
+\begin{itemize}
+\item Gdy nie uda się otworzyć pliku wejściowego, pojawi się okno dialogowe z komunikatem \textit{Could not open file!}
+\item Gdy plik wejściowy okaże się pusty, pojawi się okno dialogowe z komunikatem \textit{Could not read an empty file!}
+\end{itemize}
+\item Sytuacje związane z niemożnością odnalezienia satysfakcjonującego wyniku programu
+\begin{itemize}
+\item W przypadku gdy nie uda się znaleźć korzystnego sposobu wymiany waluty, w wynikowe pole tekstowe zostanie wpisane: \textit{Currency exchange: Could not find any beneficial exchange!}
+\item W przypadku gdy nie uda się odnaleźć arbitrażu, w wynikowe pole tekstowe zostanie wpisane \textit{Arbitrage finding: Could not find any arbitrage!}
+\end{itemize}
+\end{enumerate}
 
 
 \end{document}
