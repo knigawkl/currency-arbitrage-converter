@@ -2,9 +2,9 @@ D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Debug\GWhub.exe.config
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Debug\GWhub.exe
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Debug\GWhub.pdb
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.csprojAssemblyReference.cache
-D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.Form1.resources
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.Properties.Resources.resources
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.csproj.GenerateResource.cache
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.csproj.CoreCompileInputs.cache
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.exe
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.pdb
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.MainForm.resources
