@@ -51,7 +51,6 @@
     <Compile Include="BellmanFordAlgo.cs" />
     <Compile Include="CurrencyVertex.cs" />
     <Compile Include="ExchangeEdge.cs" />
-    <Compile Include="dupa.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,13 @@ namespace GWhub
             Application.Run(new MainForm());
         }
         */
+        public static void Main(string[] args)
+        {
+            //CurrencyVertex currencyVertex = new CurrencyVertex("EUR");
+            //ExchangeEdge exchangeEdge = new ExchangeEdge();
+            Parser p = new Parser();
+            p.Parse(@"C:\input.txt");
+        }
 
     }
 }
