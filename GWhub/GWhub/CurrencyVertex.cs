@@ -11,13 +11,9 @@ namespace GWhub
         }
 
         public string Symbol { get; }
-
-        public bool Visisted { get; set; }
-
+        public bool Visisted { get; set; } = false;
         public double MinDistance { get; set; } = int.MaxValue;
-
         public CurrencyVertex Prev { get; set; }
-
         public List<ExchangeEdge> Edges { get; }
 
         public void AddEdge(ExchangeEdge edge)

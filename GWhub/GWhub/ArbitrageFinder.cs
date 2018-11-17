@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace GWhub
 {
-    public class BellmanFordAlgo
+    public class ArbitrageFinder
     {
         private List<CurrencyVertex> vertices;
         private List<ExchangeEdge> edges;
         private List<CurrencyVertex> cycles;
 
-        public BellmanFordAlgo(List<CurrencyVertex> _vertexes, List<ExchangeEdge> _edges)
+        public ArbitrageFinder(List<CurrencyVertex> _vertexes, List<ExchangeEdge> _edges)
         {
             vertices = _vertexes;
             edges = _edges;
@@ -79,8 +79,6 @@ namespace GWhub
             {
                 Console.WriteLine("NO ARBITRAGE");
             }
-        }
-
-        
+        }    
     }
 }

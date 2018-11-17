@@ -8,3 +8,10 @@ D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.csproj.Core
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.exe
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.pdb
 D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.MainForm.resources
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Debug\Microsoft.Msagl.dll
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Debug\Microsoft.Msagl.Drawing.dll
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Debug\Microsoft.Msagl.GraphViewerGdi.dll
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Debug\Microsoft.Msagl.xml
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Debug\Microsoft.Msagl.Drawing.xml
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Debug\Microsoft.Msagl.GraphViewerGdi.xml
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Debug\GWhub.csproj.CopyComplete

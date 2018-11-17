@@ -8,25 +8,20 @@ using System.Windows.Forms;
 namespace GWhub
 {
     static class Program
-    {/*
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+    {
+        static readonly string INPUT_PATH = @"D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\input\input.txt";
+        static readonly string IMG_PATH = @"D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\output\output.png";
+
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
-        }
-        */
-        public static void Main(string[] args)
-        {
-            //CurrencyVertex currencyVertex = new CurrencyVertex("EUR");
-            //ExchangeEdge exchangeEdge = new ExchangeEdge();
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new MainForm());
             Parser p = new Parser();
-            p.Parse(@"C:\input.txt");
+            DirectedGraph graph = p.Parse(INPUT_PATH);
+            graph.Draw();
+            graph.SaveGraphAsImg(IMG_PATH);
         }
-
     }
 }
