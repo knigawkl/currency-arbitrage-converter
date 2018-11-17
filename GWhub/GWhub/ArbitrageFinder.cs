@@ -5,15 +5,14 @@ namespace GWhub
 {
     public class ArbitrageFinder
     {
+        private List<CurrencyVertex> cycles = new List<CurrencyVertex>();
         private List<CurrencyVertex> vertices;
         private List<ExchangeEdge> edges;
-        private List<CurrencyVertex> cycles;
 
-        public ArbitrageFinder(List<CurrencyVertex> _vertexes, List<ExchangeEdge> _edges)
+        public ArbitrageFinder(Digraph graph, double startMoneyAmount)
         {
-            vertices = _vertexes;
-            edges = _edges;
-            cycles = new  List<CurrencyVertex>();
+            vertices = graph.nodes;
+            edges = graph.edges;
         }
 
         public void Find(CurrencyVertex start)
@@ -38,12 +37,9 @@ namespace GWhub
                     }
                 }
             }
-            //tu sie konczy wlasciwy bellman-ford
-
 
             foreach (ExchangeEdge edge in edges)
             {
-                //jesli hascycle jest true to znaczy ze musi byc negative cycle - ujemny cykl
                 if (edge.StartVertex.MinDistance != int.MaxValue && HasCycle(edge))
                 {
                     CurrencyVertex vertex = edge.StartVertex;
@@ -70,7 +66,7 @@ namespace GWhub
         {
             if(this.cycles != null)
             {
-                foreach (CurrencyVertex ver in vertices)
+                foreach (CurrencyVertex ver in cycles)
                 {
                     Console.WriteLine(ver);
                 }

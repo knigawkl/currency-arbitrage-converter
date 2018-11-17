@@ -6,9 +6,9 @@ namespace GWhub
 {
     public class Parser
     {
-        public DirectedGraph Parse(string input)
+        public Digraph Parse(string input)
         {
-            DirectedGraph parsed = new DirectedGraph();
+            Digraph parsed = new Digraph();
 
             try
             {

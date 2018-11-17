@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GWhub
 {
     public partial class MainForm : Form
     {
+        static readonly string IMG_PATH = @"D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\output\output.png";
+
+        Digraph graph;
+
         public MainForm()
         {
             InitializeComponent();
@@ -26,6 +24,11 @@ namespace GWhub
             {
                 FilePathTxt.Text = ofd.FileName;
             }
+            Parser p = new Parser();
+            graph = p.Parse(FilePathTxt.Text);
+            graph.SaveGraphAsImg(IMG_PATH);
+            GraphImg.Image = Image.FromFile(IMG_PATH);
+            GraphImg.Invalidate();
         }
 
         private void CurrencyBtn_Click(object sender, EventArgs e)
@@ -35,7 +38,10 @@ namespace GWhub
 
         private void ArbitrageBtn_Click(object sender, EventArgs e)
         {
-
+            double arbitrageAmount = double.Parse(ArbitrageAmountTxt.Text);
+            ArbitrageFinder af = new ArbitrageFinder(graph, arbitrageAmount);
+            af.Find(graph.nodes[0]);
+            af.PrintCycle();
         }
     }
 }
