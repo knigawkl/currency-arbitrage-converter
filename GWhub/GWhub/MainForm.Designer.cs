@@ -49,6 +49,7 @@
             // OutputTxt
             // 
             this.OutputTxt.Enabled = false;
+            this.OutputTxt.ForeColor = System.Drawing.SystemColors.MenuText;
             this.OutputTxt.Location = new System.Drawing.Point(12, 378);
             this.OutputTxt.Multiline = true;
             this.OutputTxt.Name = "OutputTxt";

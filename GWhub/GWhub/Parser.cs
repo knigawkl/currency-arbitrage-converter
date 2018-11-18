@@ -31,9 +31,19 @@ namespace GWhub
                 for (int i = ++secondCommentLine; i < lines.Count; i++)
                 {
                     string[] words = lines[i].Split();
+                    int feeType;
+                    if (words[4].StartsWith("S")) {
+                        feeType = (int)ExchangeEdge.ChargeType.Standing;
+                    }
+                    else
+                    {
+                        feeType = (int)ExchangeEdge.ChargeType.Percent;
+                    }
                     parsed.edges.Add(new ExchangeEdge(parsed.nodes.Find(x => x.Symbol == words[1]), 
                         parsed.nodes.Find(x => x.Symbol == words[2]), 
-                        double.Parse(words[3])));
+                        double.Parse(words[3]),
+                        feeType,
+                        double.Parse(words[5])));
                 }
             }
             catch (Exception e)

@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace GWhub
 {
     public class ArbitrageFinder
     {
-        private List<CurrencyVertex> cycles = new List<CurrencyVertex>();
+        private List<CurrencyVertex> cycle = new List<CurrencyVertex>();
         private List<CurrencyVertex> vertices;
         private List<ExchangeEdge> edges;
+        double money;
+        double moneyAfterExchange;
 
         public ArbitrageFinder(Digraph graph, double startMoneyAmount)
         {
             vertices = graph.nodes;
             edges = graph.edges;
+            money = startMoneyAmount;
+            foreach (var edge in edges)
+            {
+                edge.Weight = -Math.Log(edge.Weight);
+            }
+            Find(vertices[0]);
+            PrintCycle();
         }
 
         public void Find(CurrencyVertex start)
         {
             start.MinDistance = 0;
 
-            for (int i = 0; i < vertices.Capacity - 1; ++i)
-            {
-                foreach (ExchangeEdge edge in edges)
+            for (int i = 0; i < vertices.Count - 1; ++i)
+            { 
+                foreach (var edge in edges)
                 {
                     if (edge.StartVertex.MinDistance == int.MaxValue)
                     {
@@ -33,25 +43,25 @@ namespace GWhub
                     if (newDistance < edge.FinishVertex.MinDistance)
                     {
                         edge.FinishVertex.MinDistance = newDistance;
-                        edge.FinishVertex.Prev = start;
+                        edge.FinishVertex.Prev = edge.StartVertex;
                     }
                 }
             }
 
-            foreach (ExchangeEdge edge in edges)
+            foreach (var edge in edges)
             {
                 if (edge.StartVertex.MinDistance != int.MaxValue && HasCycle(edge))
                 {
                     CurrencyVertex vertex = edge.StartVertex;
 
-                    while(!vertex.Equals(edge.FinishVertex))
+                    while (!vertex.Equals(edge.FinishVertex))
                     {
-                        this.cycles.Add(vertex);
+                        cycle.Add(vertex);
                         vertex = vertex.Prev;
                     }
 
-                    this.cycles.Add(edge.FinishVertex);
-
+                    this.cycle.Add(edge.FinishVertex);
+                    cycle.Reverse();
                     return;
                 }
             }
@@ -62,19 +72,26 @@ namespace GWhub
             return edge.FinishVertex.MinDistance > edge.StartVertex.MinDistance + edge.Weight;
         }
 
-        public void PrintCycle()
+        public string PrintCycle()
         {
-            if(this.cycles != null)
+            if (this.cycle != null)
             {
-                foreach (CurrencyVertex ver in cycles)
+                StringBuilder sb = new StringBuilder(money.ToString());
+                foreach (CurrencyVertex ver in cycle)
                 {
-                    Console.WriteLine(ver);
+                    sb.Append(' ');
+                    sb.Append(ver.Symbol);
+                    sb.Append(' ');
+                    sb.Append("->");
                 }
+                if (cycle.Capacity > 0)
+                {
+                    sb.Append(' ');
+                    sb.Append(cycle[0]);
+                }
+                return sb.ToString();
             }
-            else
-            {
-                Console.WriteLine("NO ARBITRAGE");
-            }
-        }    
+            return "No arbitrage detected";
+        }
     }
 }

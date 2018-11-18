@@ -24,6 +24,7 @@ namespace GWhub
             {
                 FilePathTxt.Text = ofd.FileName;
             }
+
             Parser p = new Parser();
             graph = p.Parse(FilePathTxt.Text);
             graph.SaveGraphAsImg(IMG_PATH);
@@ -40,8 +41,8 @@ namespace GWhub
         {
             double arbitrageAmount = double.Parse(ArbitrageAmountTxt.Text);
             ArbitrageFinder af = new ArbitrageFinder(graph, arbitrageAmount);
-            af.Find(graph.nodes[0]);
-            af.PrintCycle();
+            var result = af.PrintCycle();
+            OutputTxt.Text = result;
         }
     }
 }
