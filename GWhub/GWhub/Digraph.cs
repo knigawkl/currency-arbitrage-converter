@@ -3,6 +3,7 @@ using Microsoft.Msagl.Drawing;
 using Microsoft.Msagl.GraphViewerGdi;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System;
 
 namespace GWhub
 {
@@ -34,7 +35,7 @@ namespace GWhub
             foreach (var edge in edges)
             {
                 var ed = graphImg.AddEdge(edge.StartVertex.Symbol,
-                    edge.Weight.ToString(),
+                    String.Format("{0:0.00}", edge.Weight),
                     edge.FinishVertex.Symbol);
 
                 ed.Attr.Color = Microsoft.Msagl.Drawing.Color.Black;
@@ -42,14 +43,20 @@ namespace GWhub
             }
         }
 
-        public void SaveGraphAsImg(string path)
+        public string SaveGraphAsImg(string path)
         {
             Graph tmp = Draw();
             GraphRenderer renderer = new GraphRenderer(tmp);
             renderer.CalculateLayout();
             Bitmap bitmap = new Bitmap(WIDTH, (int)(tmp.Height * (WIDTH / tmp.Width)), PixelFormat.Format32bppPArgb);
             renderer.Render(bitmap);
-            bitmap.Save(path);
+
+            string name = path + Guid.NewGuid().ToString() + @".jpg";
+
+            bitmap.Save(name);
+            bitmap.Dispose();
+
+            return name;
         }
     }
 }

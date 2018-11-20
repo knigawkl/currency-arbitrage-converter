@@ -57,7 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArbitrageFinder.cs" />
+    <Compile Include="Arbitrage.cs" />
+    <Compile Include="BestExchange.cs" />
     <Compile Include="CurrencyVertex.cs" />
     <Compile Include="ExchangeEdge.cs" />
     <Compile Include="Digraph.cs" />

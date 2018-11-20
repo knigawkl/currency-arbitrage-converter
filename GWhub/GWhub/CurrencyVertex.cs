@@ -11,8 +11,7 @@ namespace GWhub
         }
 
         public string Symbol { get; }
-        public bool Visisted { get; set; } = false;
-        public double MinDistance { get; set; } = int.MaxValue;
+        public double MoneyAt { get; set; } = int.MaxValue;
         public CurrencyVertex Prev { get; set; }
         public List<ExchangeEdge> Edges { get; }
 
@@ -21,9 +20,8 @@ namespace GWhub
             this.Edges.Add(edge);
         }
 
-        public override string ToString()
-        {
-            return this.Symbol;
-        }
+        public double InverseMoney() => 1 / this.MoneyAt;
+
+        public override string ToString() => this.Symbol;
     }
 }

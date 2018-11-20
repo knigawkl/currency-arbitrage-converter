@@ -8,9 +8,9 @@
         {
             StartVertex = start;
             FinishVertex = finish;
-            Weight = weight;
             FeeType = chargeType;
             Charge = charge;
+            Weight = weight;
         }
 
         public double Weight { get; set; }

@@ -15,34 +15,34 @@ namespace GWhub
             InitializeComponent();
         }
 
-        OpenFileDialog ofd = new OpenFileDialog();
-
         private void FileBtn_Click(object sender, EventArgs e)
         {
+            graph = new Digraph();
+            GraphImg.Image = GraphImg.InitialImage;
+            OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "TXT|*.txt";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 FilePathTxt.Text = ofd.FileName;
             }
-
             Parser p = new Parser();
             graph = p.Parse(FilePathTxt.Text);
-            graph.SaveGraphAsImg(IMG_PATH);
-            GraphImg.Image = Image.FromFile(IMG_PATH);
-            GraphImg.Invalidate();
+            
+            GraphImg.Image = Image.FromFile(graph.SaveGraphAsImg(IMG_PATH));
         }
 
         private void CurrencyBtn_Click(object sender, EventArgs e)
         {
-
+            CurrencyVertex from = graph.nodes.Find(x => x.Symbol == FromTxt.Text);
+            CurrencyVertex to = graph.nodes.Find(x => x.Symbol == ToTxt.Text);
+            double moneyAtSource = double.Parse(ExchangeAmountTxt.Text);
+            var exchange = new BestExchange(graph);
+            exchange.Find(from, to, moneyAtSource);
         }
 
         private void ArbitrageBtn_Click(object sender, EventArgs e)
         {
-            double arbitrageAmount = double.Parse(ArbitrageAmountTxt.Text);
-            ArbitrageFinder af = new ArbitrageFinder(graph, arbitrageAmount);
-            var result = af.PrintCycle();
-            OutputTxt.Text = result;
+
         }
     }
 }

@@ -33,8 +33,8 @@
             this.CurrencyBtn = new System.Windows.Forms.Button();
             this.ArbitrageBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ToTxt = new System.Windows.Forms.TextBox();
+            this.ExchangeAmountTxt = new System.Windows.Forms.TextBox();
             this.ArbitrageAmountTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +43,8 @@
             this.FilePathTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.GraphImg = new System.Windows.Forms.PictureBox();
+            this.FromTxt = new System.Windows.Forms.TextBox();
+            this.FromLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GraphImg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,23 +58,26 @@
             this.OutputTxt.ReadOnly = true;
             this.OutputTxt.Size = new System.Drawing.Size(674, 101);
             this.OutputTxt.TabIndex = 0;
+            this.OutputTxt.TabStop = false;
             // 
             // CurrencyBtn
             // 
-            this.CurrencyBtn.Location = new System.Drawing.Point(504, 176);
+            this.CurrencyBtn.Location = new System.Drawing.Point(504, 195);
             this.CurrencyBtn.Name = "CurrencyBtn";
             this.CurrencyBtn.Size = new System.Drawing.Size(146, 28);
             this.CurrencyBtn.TabIndex = 2;
+            this.CurrencyBtn.TabStop = false;
             this.CurrencyBtn.Text = "Exchange currency";
             this.CurrencyBtn.UseVisualStyleBackColor = true;
             this.CurrencyBtn.Click += new System.EventHandler(this.CurrencyBtn_Click);
             // 
             // ArbitrageBtn
             // 
-            this.ArbitrageBtn.Location = new System.Drawing.Point(504, 275);
+            this.ArbitrageBtn.Location = new System.Drawing.Point(504, 310);
             this.ArbitrageBtn.Name = "ArbitrageBtn";
             this.ArbitrageBtn.Size = new System.Drawing.Size(148, 28);
             this.ArbitrageBtn.TabIndex = 3;
+            this.ArbitrageBtn.TabStop = false;
             this.ArbitrageBtn.Text = "Find arbitrage";
             this.ArbitrageBtn.UseVisualStyleBackColor = true;
             this.ArbitrageBtn.Click += new System.EventHandler(this.ArbitrageBtn_Click);
@@ -86,49 +91,49 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Output:";
             // 
-            // textBox3
+            // ToTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(504, 120);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 22);
-            this.textBox3.TabIndex = 11;
+            this.ToTxt.Location = new System.Drawing.Point(504, 139);
+            this.ToTxt.Name = "ToTxt";
+            this.ToTxt.Size = new System.Drawing.Size(146, 22);
+            this.ToTxt.TabIndex = 1;
             // 
-            // textBox4
+            // ExchangeAmountTxt
             // 
-            this.textBox4.Location = new System.Drawing.Point(504, 148);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 22);
-            this.textBox4.TabIndex = 12;
+            this.ExchangeAmountTxt.Location = new System.Drawing.Point(504, 167);
+            this.ExchangeAmountTxt.Name = "ExchangeAmountTxt";
+            this.ExchangeAmountTxt.Size = new System.Drawing.Size(146, 22);
+            this.ExchangeAmountTxt.TabIndex = 2;
             // 
             // ArbitrageAmountTxt
             // 
-            this.ArbitrageAmountTxt.Location = new System.Drawing.Point(504, 247);
+            this.ArbitrageAmountTxt.Location = new System.Drawing.Point(504, 282);
             this.ArbitrageAmountTxt.Name = "ArbitrageAmountTxt";
             this.ArbitrageAmountTxt.Size = new System.Drawing.Size(146, 22);
-            this.ArbitrageAmountTxt.TabIndex = 13;
+            this.ArbitrageAmountTxt.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(433, 123);
+            this.label2.Location = new System.Drawing.Point(435, 142);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.Size = new System.Drawing.Size(25, 17);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Amount";
+            this.label2.Text = "To";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(433, 151);
+            this.label3.Location = new System.Drawing.Point(433, 170);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 17);
+            this.label3.Size = new System.Drawing.Size(56, 17);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Currency";
+            this.label3.Text = "Amount";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(433, 250);
+            this.label4.Location = new System.Drawing.Point(433, 285);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 17);
             this.label4.TabIndex = 16;
@@ -141,6 +146,7 @@
             this.FileBtn.Name = "FileBtn";
             this.FileBtn.Size = new System.Drawing.Size(80, 29);
             this.FileBtn.TabIndex = 17;
+            this.FileBtn.TabStop = false;
             this.FileBtn.Text = "Open File";
             this.FileBtn.UseVisualStyleBackColor = true;
             this.FileBtn.Click += new System.EventHandler(this.FileBtn_Click);
@@ -152,6 +158,7 @@
             this.FilePathTxt.ReadOnly = true;
             this.FilePathTxt.Size = new System.Drawing.Size(583, 22);
             this.FilePathTxt.TabIndex = 18;
+            this.FilePathTxt.TabStop = false;
             // 
             // label5
             // 
@@ -166,6 +173,7 @@
             // GraphImg
             // 
             this.GraphImg.Image = ((System.Drawing.Image)(resources.GetObject("GraphImg.Image")));
+            this.GraphImg.InitialImage = ((System.Drawing.Image)(resources.GetObject("GraphImg.InitialImage")));
             this.GraphImg.Location = new System.Drawing.Point(16, 100);
             this.GraphImg.Name = "GraphImg";
             this.GraphImg.Size = new System.Drawing.Size(399, 238);
@@ -173,11 +181,29 @@
             this.GraphImg.TabIndex = 21;
             this.GraphImg.TabStop = false;
             // 
+            // FromTxt
+            // 
+            this.FromTxt.Location = new System.Drawing.Point(504, 111);
+            this.FromTxt.Name = "FromTxt";
+            this.FromTxt.Size = new System.Drawing.Size(146, 22);
+            this.FromTxt.TabIndex = 0;
+            // 
+            // FromLbl
+            // 
+            this.FromLbl.AutoSize = true;
+            this.FromLbl.Location = new System.Drawing.Point(435, 114);
+            this.FromLbl.Name = "FromLbl";
+            this.FromLbl.Size = new System.Drawing.Size(40, 17);
+            this.FromLbl.TabIndex = 23;
+            this.FromLbl.Text = "From";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 491);
+            this.Controls.Add(this.FromLbl);
+            this.Controls.Add(this.FromTxt);
             this.Controls.Add(this.GraphImg);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.FilePathTxt);
@@ -186,8 +212,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ArbitrageAmountTxt);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.ExchangeAmountTxt);
+            this.Controls.Add(this.ToTxt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ArbitrageBtn);
             this.Controls.Add(this.CurrencyBtn);
@@ -208,8 +234,8 @@
         private System.Windows.Forms.Button CurrencyBtn;
         private System.Windows.Forms.Button ArbitrageBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ToTxt;
+        private System.Windows.Forms.TextBox ExchangeAmountTxt;
         private System.Windows.Forms.TextBox ArbitrageAmountTxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -218,6 +244,8 @@
         private System.Windows.Forms.TextBox FilePathTxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox GraphImg;
+        private System.Windows.Forms.TextBox FromTxt;
+        private System.Windows.Forms.Label FromLbl;
     }
 }
 
