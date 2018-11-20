@@ -50,12 +50,9 @@ namespace GWhub
             renderer.CalculateLayout();
             Bitmap bitmap = new Bitmap(WIDTH, (int)(tmp.Height * (WIDTH / tmp.Width)), PixelFormat.Format32bppPArgb);
             renderer.Render(bitmap);
-
             string name = path + Guid.NewGuid().ToString() + @".jpg";
-
             bitmap.Save(name);
             bitmap.Dispose();
-
             return name;
         }
     }
