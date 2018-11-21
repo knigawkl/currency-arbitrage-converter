@@ -8,12 +8,13 @@ namespace GWhub
     {
         private List<CurrencyVertex> vertices;
         private List<ExchangeEdge> edges;
-        private List<CurrencyVertex> path = new List<CurrencyVertex>();
+        private List<CurrencyVertex> path;
 
         public BestExchange(Digraph graph)
         {  
             vertices = graph.nodes;
             edges = graph.edges;
+            path = new List<CurrencyVertex>();
         }
 
         public List<CurrencyVertex> Find(CurrencyVertex src, CurrencyVertex to, double moneyAtStart)

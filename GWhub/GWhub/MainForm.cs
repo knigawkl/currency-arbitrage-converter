@@ -9,7 +9,7 @@ namespace GWhub
     {
         static readonly string IMG_PATH = @"D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\output\output.png";
 
-        Digraph graph;
+        //Digraph graph;
 
         public MainForm()
         {
@@ -18,7 +18,7 @@ namespace GWhub
 
         private void FileBtn_Click(object sender, EventArgs e)
         {
-            graph = new Digraph();
+            Digraph graph = new Digraph();
             GraphImg.Image = GraphImg.InitialImage;
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "TXT|*.txt";
@@ -34,6 +34,9 @@ namespace GWhub
 
         private void CurrencyBtn_Click(object sender, EventArgs e)
         {
+            Digraph graph = new Digraph();
+            Parser p = new Parser();
+            graph = p.Parse(FilePathTxt.Text);
             CurrencyVertex from = graph.nodes.Find(x => x.Symbol == FromTxt.Text);
             CurrencyVertex to = graph.nodes.Find(x => x.Symbol == ToTxt.Text);
             double moneyAtSource = double.Parse(ExchangeAmountTxt.Text);
