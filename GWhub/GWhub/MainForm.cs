@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -37,7 +38,9 @@ namespace GWhub
             CurrencyVertex to = graph.nodes.Find(x => x.Symbol == ToTxt.Text);
             double moneyAtSource = double.Parse(ExchangeAmountTxt.Text);
             var exchange = new BestExchange(graph);
-            exchange.Find(from, to, moneyAtSource);
+            List<CurrencyVertex> path = exchange.Find(from, to, moneyAtSource);
+            string result = exchange.PrintOutput(path);
+            OutputTxt.Text = result;
         }
 
         private void ArbitrageBtn_Click(object sender, EventArgs e)

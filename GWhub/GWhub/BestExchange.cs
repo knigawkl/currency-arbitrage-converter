@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace GWhub
 {
@@ -6,6 +8,7 @@ namespace GWhub
     {
         private List<CurrencyVertex> vertices;
         private List<ExchangeEdge> edges;
+        private List<CurrencyVertex> path = new List<CurrencyVertex>();
 
         public BestExchange(Digraph graph)
         {  
@@ -13,7 +16,7 @@ namespace GWhub
             edges = graph.edges;
         }
 
-        public void Find(CurrencyVertex src, CurrencyVertex to, double moneyAtStart)
+        public List<CurrencyVertex> Find(CurrencyVertex src, CurrencyVertex to, double moneyAtStart)
         {
             src.MoneyAt = moneyAtStart;
             src.MinDistance = 0;
@@ -27,12 +30,60 @@ namespace GWhub
                         continue;
                     }
 
+                    double newMoneyAtDest;
+                    double newDistance;
                     if (edge.FeeType == (int)ExchangeEdge.ChargeType.Percent)
                     {
-                        
+                        newMoneyAtDest = edge.StartVertex.MoneyAt * edge.Weight * (1 - edge.Charge);
+                        newDistance = Inverse(newMoneyAtDest);
+                        if (newDistance < edge.FinishVertex.MinDistance)
+                        {
+                            edge.FinishVertex.MinDistance = newDistance;
+                            edge.FinishVertex.Prev = edge.StartVertex;
+                            edge.FinishVertex.MoneyAt = newMoneyAtDest;
+                        }
                     }
+                    else if (edge.FeeType == (int)ExchangeEdge.ChargeType.Standing)
+                    {
+                        newMoneyAtDest = edge.StartVertex.MoneyAt * edge.Weight - edge.Charge;
+                        newDistance = Inverse(newMoneyAtDest);
+                        if (newDistance < edge.FinishVertex.MinDistance)
+                        {
+                            edge.FinishVertex.MinDistance = newDistance;
+                            edge.FinishVertex.Prev = edge.StartVertex;
+                            edge.FinishVertex.MoneyAt = newMoneyAtDest;
+                        }
+                    } 
                 }
             }
+            path.Add(to);
+            CurrencyVertex last = vertices.Find(x => x.Equals(to));
+            CurrencyVertex first = vertices.Find(x => x.Equals(src));
+            while (last.Prev != first)
+            {
+                last = last.Prev;
+                path.Add(last);
+            }
+            path.Add(src);
+            path.Reverse();
+            return path;
         }
+
+        public string PrintOutput(List<CurrencyVertex> path)
+        {
+            StringBuilder sb = new StringBuilder(path[0].MoneyAt.ToString());
+            sb.Append(" ");
+            for (int i = 0; i < path.Count - 1; i++)
+            {
+                sb.Append(path[i].Symbol);
+                sb.Append(" -> ");
+            }
+            sb.Append(String.Format("{0:0.00}", path[path.Count - 1].MoneyAt));
+            sb.Append(" ");
+            sb.Append(path[path.Count - 1].Symbol);
+            return sb.ToString();
+        }
+
+        public double Inverse(double money) => 1 / money;
     }
 }

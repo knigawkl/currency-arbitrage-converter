@@ -14,8 +14,6 @@ namespace GWhub
         public double MinDistance { get; set; } = int.MaxValue;
         public CurrencyVertex Prev { get; set; }
 
-        public double InverseMoney() => 1 / this.MoneyAt;
-
         public override string ToString() => this.Symbol;
     }
 }
