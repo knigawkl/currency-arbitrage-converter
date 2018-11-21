@@ -218,6 +218,7 @@
             this.Controls.Add(this.ArbitrageBtn);
             this.Controls.Add(this.CurrencyBtn);
             this.Controls.Add(this.OutputTxt);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

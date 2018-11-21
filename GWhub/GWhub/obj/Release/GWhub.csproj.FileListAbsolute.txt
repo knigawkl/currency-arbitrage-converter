@@ -1,0 +1,17 @@
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Release\GWhub.exe.config
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Release\GWhub.exe
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Release\GWhub.pdb
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Release\Microsoft.Msagl.dll
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Release\Microsoft.Msagl.Drawing.dll
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Release\Microsoft.Msagl.GraphViewerGdi.dll
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Release\Microsoft.Msagl.xml
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Release\Microsoft.Msagl.Drawing.xml
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\bin\Release\Microsoft.Msagl.GraphViewerGdi.xml
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Release\GWhub.csprojAssemblyReference.cache
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Release\GWhub.MainForm.resources
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Release\GWhub.Properties.Resources.resources
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Release\GWhub.csproj.GenerateResource.cache
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Release\GWhub.csproj.CoreCompileInputs.cache
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Release\GWhub.csproj.CopyComplete
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Release\GWhub.exe
+D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\GWhub\GWhub\obj\Release\GWhub.pdb
