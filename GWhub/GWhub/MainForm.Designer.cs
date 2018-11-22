@@ -61,7 +61,7 @@
             // 
             // CurrencyBtn
             // 
-            this.CurrencyBtn.Location = new System.Drawing.Point(504, 195);
+            this.CurrencyBtn.Location = new System.Drawing.Point(504, 186);
             this.CurrencyBtn.Name = "CurrencyBtn";
             this.CurrencyBtn.Size = new System.Drawing.Size(146, 28);
             this.CurrencyBtn.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             // ArbitrageBtn
             // 
-            this.ArbitrageBtn.Location = new System.Drawing.Point(504, 310);
+            this.ArbitrageBtn.Location = new System.Drawing.Point(504, 301);
             this.ArbitrageBtn.Name = "ArbitrageBtn";
             this.ArbitrageBtn.Size = new System.Drawing.Size(148, 28);
             this.ArbitrageBtn.TabIndex = 3;
@@ -92,21 +92,21 @@
             // 
             // ToTxt
             // 
-            this.ToTxt.Location = new System.Drawing.Point(504, 139);
+            this.ToTxt.Location = new System.Drawing.Point(504, 130);
             this.ToTxt.Name = "ToTxt";
             this.ToTxt.Size = new System.Drawing.Size(146, 22);
             this.ToTxt.TabIndex = 1;
             // 
             // ExchangeAmountTxt
             // 
-            this.ExchangeAmountTxt.Location = new System.Drawing.Point(504, 167);
+            this.ExchangeAmountTxt.Location = new System.Drawing.Point(504, 158);
             this.ExchangeAmountTxt.Name = "ExchangeAmountTxt";
             this.ExchangeAmountTxt.Size = new System.Drawing.Size(146, 22);
             this.ExchangeAmountTxt.TabIndex = 2;
             // 
             // ArbitrageAmountTxt
             // 
-            this.ArbitrageAmountTxt.Location = new System.Drawing.Point(504, 282);
+            this.ArbitrageAmountTxt.Location = new System.Drawing.Point(504, 273);
             this.ArbitrageAmountTxt.Name = "ArbitrageAmountTxt";
             this.ArbitrageAmountTxt.Size = new System.Drawing.Size(146, 22);
             this.ArbitrageAmountTxt.TabIndex = 3;
@@ -114,7 +114,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(435, 142);
+            this.label2.Location = new System.Drawing.Point(435, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 17);
             this.label2.TabIndex = 14;
@@ -123,7 +123,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(433, 170);
+            this.label3.Location = new System.Drawing.Point(433, 161);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 17);
             this.label3.TabIndex = 15;
@@ -132,7 +132,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(433, 285);
+            this.label4.Location = new System.Drawing.Point(433, 276);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 17);
             this.label4.TabIndex = 16;
@@ -141,7 +141,7 @@
             // FileBtn
             // 
             this.FileBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.FileBtn.Location = new System.Drawing.Point(17, 44);
+            this.FileBtn.Location = new System.Drawing.Point(17, 35);
             this.FileBtn.Name = "FileBtn";
             this.FileBtn.Size = new System.Drawing.Size(80, 29);
             this.FileBtn.TabIndex = 17;
@@ -152,7 +152,7 @@
             // 
             // FilePathTxt
             // 
-            this.FilePathTxt.Location = new System.Drawing.Point(103, 47);
+            this.FilePathTxt.Location = new System.Drawing.Point(103, 38);
             this.FilePathTxt.Name = "FilePathTxt";
             this.FilePathTxt.ReadOnly = true;
             this.FilePathTxt.Size = new System.Drawing.Size(583, 22);
@@ -163,7 +163,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(14, 18);
+            this.label5.Location = new System.Drawing.Point(14, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(153, 17);
             this.label5.TabIndex = 19;
@@ -173,7 +173,7 @@
             // 
             this.GraphImg.Image = ((System.Drawing.Image)(resources.GetObject("GraphImg.Image")));
             this.GraphImg.InitialImage = ((System.Drawing.Image)(resources.GetObject("GraphImg.InitialImage")));
-            this.GraphImg.Location = new System.Drawing.Point(16, 100);
+            this.GraphImg.Location = new System.Drawing.Point(16, 91);
             this.GraphImg.Name = "GraphImg";
             this.GraphImg.Size = new System.Drawing.Size(399, 328);
             this.GraphImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -182,7 +182,7 @@
             // 
             // FromTxt
             // 
-            this.FromTxt.Location = new System.Drawing.Point(504, 111);
+            this.FromTxt.Location = new System.Drawing.Point(504, 102);
             this.FromTxt.Name = "FromTxt";
             this.FromTxt.Size = new System.Drawing.Size(146, 22);
             this.FromTxt.TabIndex = 0;
@@ -190,7 +190,7 @@
             // FromLbl
             // 
             this.FromLbl.AutoSize = true;
-            this.FromLbl.Location = new System.Drawing.Point(435, 114);
+            this.FromLbl.Location = new System.Drawing.Point(435, 105);
             this.FromLbl.Name = "FromLbl";
             this.FromLbl.Size = new System.Drawing.Size(40, 17);
             this.FromLbl.TabIndex = 23;
