@@ -50,13 +50,12 @@
             // 
             // OutputTxt
             // 
-            this.OutputTxt.Enabled = false;
             this.OutputTxt.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.OutputTxt.Location = new System.Drawing.Point(12, 378);
+            this.OutputTxt.Location = new System.Drawing.Point(12, 451);
             this.OutputTxt.Multiline = true;
             this.OutputTxt.Name = "OutputTxt";
             this.OutputTxt.ReadOnly = true;
-            this.OutputTxt.Size = new System.Drawing.Size(674, 101);
+            this.OutputTxt.Size = new System.Drawing.Size(674, 28);
             this.OutputTxt.TabIndex = 0;
             this.OutputTxt.TabStop = false;
             // 
@@ -85,7 +84,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 355);
+            this.label1.Location = new System.Drawing.Point(14, 431);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 17);
             this.label1.TabIndex = 6;
@@ -176,7 +175,7 @@
             this.GraphImg.InitialImage = ((System.Drawing.Image)(resources.GetObject("GraphImg.InitialImage")));
             this.GraphImg.Location = new System.Drawing.Point(16, 100);
             this.GraphImg.Name = "GraphImg";
-            this.GraphImg.Size = new System.Drawing.Size(399, 238);
+            this.GraphImg.Size = new System.Drawing.Size(399, 328);
             this.GraphImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.GraphImg.TabIndex = 21;
             this.GraphImg.TabStop = false;

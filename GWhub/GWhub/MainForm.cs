@@ -29,6 +29,7 @@ namespace GWhub
             Parser p = new Parser();
             graph = p.Parse(FilePathTxt.Text);            
             GraphImg.Image = Image.FromFile(graph.SaveGraphAsImg(IMG_PATH));
+            GraphImg.Focus();
         }
 
         private void CurrencyBtn_Click(object sender, EventArgs e)
@@ -45,6 +46,7 @@ namespace GWhub
 
             string result = exchange.PrintOutput(path);
             OutputTxt.Text = result;
+            GraphImg.Focus();
         }
 
         private void ArbitrageBtn_Click(object sender, EventArgs e)
@@ -59,14 +61,14 @@ namespace GWhub
             string result;
             if (path != null)
             {
-                result = arbitrage.PrintOutput(path, moneyAtSource);
-                
+                result = arbitrage.PrintOutput(path, moneyAtSource); 
             }
             else
             {
-                result = "No arbitrage bro";
+                result = "No arbitrage opportunity detected";
             }
             OutputTxt.Text = result;
+            GraphImg.Focus();
         }
     }
 }
