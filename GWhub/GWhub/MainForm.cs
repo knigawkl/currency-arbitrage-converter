@@ -42,12 +42,19 @@ namespace GWhub
 
             CurrencyVertex from = graph.nodes.Find(x => x.Symbol == FromTxt.Text);
             CurrencyVertex to = graph.nodes.Find(x => x.Symbol == ToTxt.Text);
-            double moneyAtSource = double.Parse(ExchangeAmountTxt.Text);
-            var exchange = new BestExchange(graph);
-            List<CurrencyVertex> path = exchange.Find(from, to, moneyAtSource);
 
-            string result = exchange.PrintOutput(path);
-            OutputTxt.Text = result;
+            if (!double.TryParse(ExchangeAmountTxt.Text, out double moneyAtSource))
+            {
+                OutputTxt.Text = "Initial amount of money has to be a number";
+            }
+            else
+            {
+                var exchange = new BestExchange(graph);
+                List<CurrencyVertex> path = exchange.Find(from, to, moneyAtSource);
+
+                string result = exchange.PrintOutput(path);
+                OutputTxt.Text = result;                
+            }
             GraphImg.Focus();
         }
 
