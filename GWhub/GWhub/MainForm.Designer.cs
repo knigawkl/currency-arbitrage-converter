@@ -55,7 +55,8 @@
             this.OutputTxt.Multiline = true;
             this.OutputTxt.Name = "OutputTxt";
             this.OutputTxt.ReadOnly = true;
-            this.OutputTxt.Size = new System.Drawing.Size(674, 28);
+            this.OutputTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OutputTxt.Size = new System.Drawing.Size(674, 52);
             this.OutputTxt.TabIndex = 0;
             this.OutputTxt.TabStop = false;
             // 
@@ -200,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 491);
+            this.ClientSize = new System.Drawing.Size(698, 515);
             this.Controls.Add(this.FromLbl);
             this.Controls.Add(this.FromTxt);
             this.Controls.Add(this.GraphImg);

@@ -17,6 +17,7 @@ namespace GWhub
 
         private void FileBtn_Click(object sender, EventArgs e)
         {
+            OutputTxt.Text = "";
             Digraph graph = new Digraph();
             GraphImg.Image = GraphImg.InitialImage;
             OpenFileDialog ofd = new OpenFileDialog
@@ -29,21 +30,29 @@ namespace GWhub
             }
 
             Parser p = new Parser();
-            graph = p.Parse(FilePathTxt.Text);            
+            graph = p.Parse(FilePathTxt.Text, ref OutputTxt);            
             GraphImg.Image = Image.FromFile(graph.SaveGraphAsImg(IMG_PATH));
             GraphImg.Focus();
         }
 
         private void CurrencyBtn_Click(object sender, EventArgs e)
         {
+            OutputTxt.Text = "";
             Digraph graph = new Digraph();
             Parser p = new Parser();
-            graph = p.Parse(FilePathTxt.Text);
+            graph = p.Parse(FilePathTxt.Text, ref OutputTxt);
 
             CurrencyVertex from = graph.nodes.Find(x => x.Symbol == FromTxt.Text);
             CurrencyVertex to = graph.nodes.Find(x => x.Symbol == ToTxt.Text);
-
-            if (!double.TryParse(ExchangeAmountTxt.Text, out double moneyAtSource))
+            if (from == null)
+            {
+                OutputTxt.Text = "There is no such currency in the input file: " + FromTxt.Text;
+            }
+            else if (to == null)
+            {
+                OutputTxt.Text = "There is no such currency in the input file: " + ToTxt.Text;
+            }
+            else if (!double.TryParse(ExchangeAmountTxt.Text, out double moneyAtSource))
             {
                 OutputTxt.Text = "Initial amount of money has to be a number";
             }
@@ -52,32 +61,38 @@ namespace GWhub
                 var exchange = new BestExchange(graph);
                 List<CurrencyVertex> path = exchange.Find(from, to, moneyAtSource);
 
-                string result = exchange.PrintOutput(path);
-                OutputTxt.Text = result;                
+                var outputText = exchange.GenerateOutput(path);
+                OutputTxt.Text = outputText;                
             }
             GraphImg.Focus();
         }
 
         private void ArbitrageBtn_Click(object sender, EventArgs e)
         {
+            OutputTxt.Text = "";
             Digraph graph = new Digraph();
             Parser p = new Parser();
-            graph = p.Parse(FilePathTxt.Text);
+            graph = p.Parse(FilePathTxt.Text, ref OutputTxt);
 
-
-            double moneyAtSource = double.Parse(ArbitrageAmountTxt.Text);
-            var arbitrage = new Arbitrage(graph);
-            List<CurrencyVertex> path = arbitrage?.Find(moneyAtSource);
-            string result;
-            if (path != null)
+            if (!double.TryParse(ArbitrageAmountTxt.Text, out double moneyAtSource))
             {
-                result = arbitrage.PrintOutput(path, moneyAtSource); 
+                OutputTxt.Text = "Initial amount of money has to be a number";
             }
             else
             {
-                result = "No arbitrage opportunity detected";
+                var arbitrage = new Arbitrage(graph);
+                List<CurrencyVertex> path = arbitrage?.Find(moneyAtSource);
+                string result;
+                if (path != null)
+                {
+                    result = arbitrage.PrintOutput(path, moneyAtSource);
+                }
+                else
+                {
+                    result = "No arbitrage opportunity detected";
+                }
+                OutputTxt.Text = result;
             }
-            OutputTxt.Text = result;
             GraphImg.Focus();
         }
     }

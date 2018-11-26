@@ -70,7 +70,7 @@ namespace GWhub
             return path;
         }
 
-        public string PrintOutput(List<CurrencyVertex> path)
+        public string GenerateOutput(List<CurrencyVertex> path)
         {
             StringBuilder sb = new StringBuilder(path[0].MoneyAt.ToString());
             sb.Append(" ");
