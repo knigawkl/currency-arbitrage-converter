@@ -112,11 +112,11 @@ namespace GWhub
                     }
                     else if (!double.TryParse(words[3], out rate))
                     {
-                        throw new Exception("Exchange rate cannot be read from: " + words[3]);
+                        throw new Exception("Exchange rate cannot be read from: " + words[3] + ". Line: " + (i + 1));
                     }
                     else if (!double.TryParse(words[5], out fee))
                     {
-                        throw new Exception("Exchange fee cannot be read from: " + words[5]);
+                        throw new Exception("Exchange fee cannot be read from: " + words[5] + ". Line: " + (i + 1));
                     }
                     else if (!int.TryParse(words[0], out var res))
                     {

@@ -21,94 +21,22 @@ namespace GWhub
         {
             for (int i = 0; i < vertices.Count; i++)
             {
-                vertices[i].MinDistance = 0;
-                vertices[i].MoneyAt = moneyAtStart;
-
-                for (int j = 0; j < vertices.Count - 1; ++j)
-                {
-                    foreach (var edge in edges)
-                    {
-                        if (edge.StartVertex.MinDistance == int.MaxValue)
-                        {
-                            continue;
-                        }
-
-                        double newMoneyAtDest;
-                        double newDistance;
-                        if (edge.FeeType == (int)ExchangeEdge.ChargeType.Percent)
-                        {
-                            newMoneyAtDest = edge.StartVertex.MoneyAt * edge.Weight * (1 - edge.Charge);
-                            newDistance = Inverse(newMoneyAtDest);
-                            if (newDistance < edge.FinishVertex.MinDistance)
-                            {
-                                edge.FinishVertex.MinDistance = newDistance;
-                                edge.FinishVertex.Prev = edge.StartVertex;
-                                edge.FinishVertex.MoneyAt = newMoneyAtDest;
-                            }
-                        }
-                        else if (edge.FeeType == (int)ExchangeEdge.ChargeType.Standing)
-                        {
-                            newMoneyAtDest = edge.StartVertex.MoneyAt * edge.Weight - edge.Charge;
-                            newDistance = Inverse(newMoneyAtDest);
-                            if (newDistance < edge.FinishVertex.MinDistance)
-                            {
-                                edge.FinishVertex.MinDistance = newDistance;
-                                edge.FinishVertex.Prev = edge.StartVertex;
-                                edge.FinishVertex.MoneyAt = newMoneyAtDest;
-                            }
-                        }
-                    }
-                }
-
+                var predecessors = new List<CurrencyVertex>();
                 foreach (var edge in edges)
                 {
-                    edge.Weight = edge.FinishVertex.MoneyAt / edge.StartVertex.MoneyAt;
-                    edge.Weight = -Math.Log(edge.Weight);
-                }
-                
-                vertices[i].ArbitrageMinDistance = 0;
-
-                for (int k = 0; k < vertices.Count - 1; ++k)
-                {
-                    foreach (var edge in edges)
+                    if (edge.FinishVertex.Equals(vertices[i]))
                     {
-                        if (edge.StartVertex.ArbitrageMinDistance == int.MaxValue)
-                        {
-                            continue;
-                        }
-
-                        double newArbDistance = edge.StartVertex.ArbitrageMinDistance + edge.Weight;
-
-                        if (newArbDistance < edge.FinishVertex.ArbitrageMinDistance)
-                        {
-                            edge.FinishVertex.ArbitrageMinDistance = newArbDistance;
-                            edge.FinishVertex.ArbPrev = edge.StartVertex;
-                        }
+                        predecessors.Add(edge.StartVertex);
                     }
                 }
 
-                List<CurrencyVertex> cycle = new List<CurrencyVertex>();
-                
-                foreach (var edge in edges)
-                {
-                    if (edge.StartVertex.ArbitrageMinDistance != int.MaxValue && HasCycle(edge))
-                    {
-                        CurrencyVertex vertex = edge.StartVertex;
 
-                        while (!vertex.Equals(edge.FinishVertex) && !vertex.Visited)
-                        {
-                            cycle.Add(vertex);
-                            vertex.Visited = true;
-                            vertex = vertex.ArbPrev;
-                        }
-                        cycle.Add(edge.FinishVertex);   
-                        cycle.Reverse();
-                        return cycle;
-                    }
-                }
+
+
+
 
             }
-            return null;
+            
         }
 
         private bool HasCycle(ExchangeEdge edge)
@@ -135,13 +63,13 @@ namespace GWhub
                 {
                     var e = edges.Find(x => (x.StartVertex.Equals(path[i])) && (x.FinishVertex.Equals(path[j])));
                     j++;
-                    weightsMultiplied *= (decimal)Math.Exp(e.Weight);
+                    weightsMultiplied *= (decimal)Math.Exp(-e.Weight);
                 }
 
                 var ed = edges.Find(x => (x.StartVertex.Equals(path[path.Count - 1])) && (x.FinishVertex.Equals(path[0])));
-                weightsMultiplied *= (decimal)Math.Exp(ed.Weight);
+                weightsMultiplied *= (decimal)Math.Exp(-ed.Weight);
 
-                sb.Append(String.Format("{0:0.00}", (decimal)weightsMultiplied * (decimal)startMoney));
+                sb.Append(String.Format("{0:0.00}", weightsMultiplied * (decimal)startMoney));
 
                 sb.Append(" ");
                 sb.Append(path[0].Symbol);

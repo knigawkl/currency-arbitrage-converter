@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GWhub
 {
-    class BestExchange
+    public class BestExchange
     {
         private List<CurrencyVertex> vertices;
         private List<ExchangeEdge> edges;
