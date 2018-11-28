@@ -6,37 +6,122 @@ namespace GWhub
 {
     public class Arbitrage
     {
+        private Digraph digraph;
         private List<CurrencyVertex> vertices;
         private List<ExchangeEdge> edges;
-        
 
         public Arbitrage(Digraph graph)
         {
+            digraph = graph;
             vertices = graph.nodes;
             edges = graph.edges;
-            
         }
 
         public List<CurrencyVertex> Find(double moneyAtStart)
         {
             for (int i = 0; i < vertices.Count; i++)
             {
-                var predecessors = new List<CurrencyVertex>();
-                foreach (var edge in edges)
+                vertices[i].MinDistance = 0;
+                vertices[i].MoneyAt = moneyAtStart;
+
+                for (int j = 0; j < vertices.Count - 1; ++j)
                 {
-                    if (edge.FinishVertex.Equals(vertices[i]))
+                    foreach (var edge in edges)
                     {
-                        predecessors.Add(edge.StartVertex);
+                        if (edge.StartVertex.MinDistance == int.MaxValue)
+                        {
+                            continue;
+                        }
+
+                        double newMoneyAtDest;
+                        double newDistance;
+                        if (edge.FeeType == (int)ExchangeEdge.ChargeType.Percent)
+                        {
+                            newMoneyAtDest = edge.StartVertex.MoneyAt * edge.Weight * (1 - edge.Charge);
+                            newDistance = Inverse(newMoneyAtDest);
+                            if (newDistance < edge.FinishVertex.MinDistance)
+                            {
+                                edge.FinishVertex.MinDistance = newDistance;
+                                edge.FinishVertex.Prev = edge.StartVertex;
+                                edge.FinishVertex.MoneyAt = newMoneyAtDest;
+                            }
+                        }
+                        else if (edge.FeeType == (int)ExchangeEdge.ChargeType.Standing)
+                        {
+                            newMoneyAtDest = edge.StartVertex.MoneyAt * edge.Weight - edge.Charge;
+                            newDistance = Inverse(newMoneyAtDest);
+                            if (newDistance < edge.FinishVertex.MinDistance)
+                            {
+                                edge.FinishVertex.MinDistance = newDistance;
+                                edge.FinishVertex.Prev = edge.StartVertex;
+                                edge.FinishVertex.MoneyAt = newMoneyAtDest;
+                            }
+                        }
                     }
                 }
 
+                foreach (var edge in edges)
+                {   
+                    if (edge.FeeType == (int)ExchangeEdge.ChargeType.Percent)
+                    {
+                        double moneyAtFinish = 0;
+                        moneyAtFinish = edge.StartVertex.MoneyAt * edge.Weight * (1 - edge.Charge);
+                        edge.ArbWeight = -Math.Log(moneyAtFinish / edge.StartVertex.MoneyAt);
+                        edge.Weight = edge.ArbWeight;
+                    }
+                    else if (edge.FeeType == (int)ExchangeEdge.ChargeType.Standing)
+                    {
+                        double moneyAtFinish = 0;
+                        moneyAtFinish = edge.StartVertex.MoneyAt * edge.Weight - edge.Charge;
+                        edge.ArbWeight = -Math.Log(moneyAtFinish / edge.StartVertex.MoneyAt);
+                        edge.Weight = edge.ArbWeight;
+                    }                    
+                }
 
+                
+                vertices[i].ArbitrageMinDistance = 0;
 
+                for (int k = 0; k < vertices.Count - 1; ++k)
+                {
+                    foreach (var edge in edges)
+                    {
+                        if (edge.StartVertex.ArbitrageMinDistance == int.MaxValue)
+                        {
+                            continue;
+                        }
 
+                        double newArbDistance = edge.StartVertex.ArbitrageMinDistance + edge.Weight;
 
+                        if (newArbDistance < edge.FinishVertex.ArbitrageMinDistance)
+                        {
+                            edge.FinishVertex.ArbitrageMinDistance = newArbDistance;
+                            edge.FinishVertex.ArbPrev = edge.StartVertex;
+                        }
+                    }
+                }
+
+                List<CurrencyVertex> cycle = new List<CurrencyVertex>();
+
+                foreach (var edge in edges)
+                {
+                    if (HasCycle(edge) && edge.StartVertex.ArbitrageMinDistance != int.MaxValue)
+                    {
+                        CurrencyVertex vertex = edge.StartVertex;
+
+                        while (!vertex.Equals(edge.FinishVertex) && !vertex.Visited)
+                        {
+                            cycle.Add(vertex);
+                            vertex.Visited = true;
+                            vertex = vertex.ArbPrev;
+                        }
+                        cycle.Add(edge.FinishVertex);
+                        cycle.Reverse();
+                        return cycle;
+                    }
+                }
 
             }
-            
+            return null;
         }
 
         private bool HasCycle(ExchangeEdge edge)
@@ -79,5 +164,6 @@ namespace GWhub
         }
 
         public double Inverse(double money) => 1 / money;
-    }
+
+    }  
 }

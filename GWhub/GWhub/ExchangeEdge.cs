@@ -13,6 +13,7 @@
             Weight = weight;
         }
 
+        public double ArbWeight { get; set; }
         public double Weight { get; set; }
         public CurrencyVertex StartVertex { get; set; }
         public CurrencyVertex FinishVertex { get; set; }

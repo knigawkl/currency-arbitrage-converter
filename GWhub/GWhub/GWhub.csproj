@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C195E1E1-23E1-4822-B3EB-7EF56B78952F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>GWhub</RootNamespace>
     <AssemblyName>GWhub</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

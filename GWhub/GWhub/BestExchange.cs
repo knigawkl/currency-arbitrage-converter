@@ -17,10 +17,15 @@ namespace GWhub
             path = new List<CurrencyVertex>();
         }
 
-        public List<CurrencyVertex> Find(CurrencyVertex src, CurrencyVertex to, double moneyAtStart)
+        public List<CurrencyVertex> Find(CurrencyVertex src, CurrencyVertex to, double moneyAtStart, out double moneyAtFinish)
         {
             src.MoneyAt = moneyAtStart;
             src.MinDistance = 0;
+
+            foreach (var edge in edges)
+            {
+                edge.FinishVertex.Prev = edge.StartVertex;
+            }
 
             for (int i = 0; i < vertices.Count - 1; ++i)
             {
@@ -67,6 +72,7 @@ namespace GWhub
             }
             path.Add(src);
             path.Reverse();
+            moneyAtFinish = vertices.Find(x => x.Equals(to)).MoneyAt;
             return path;
         }
 

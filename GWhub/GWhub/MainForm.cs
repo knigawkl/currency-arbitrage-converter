@@ -56,10 +56,14 @@ namespace GWhub
             {
                 OutputTxt.Text = "Initial amount of money has to be a number";
             }
+            else if (from.Equals(to))
+            {
+                OutputTxt.Text = "There is no need to convert " + from.Symbol + " to " + to.Symbol + ":)";
+            }
             else
             {
                 var exchange = new BestExchange(graph);
-                List<CurrencyVertex> path = exchange.Find(from, to, moneyAtSource);
+                List<CurrencyVertex> path = exchange.Find(from, to, moneyAtSource, out double moneyAtFinish);
 
                 var outputText = exchange.GenerateOutput(path);
                 OutputTxt.Text = outputText;                
@@ -79,9 +83,9 @@ namespace GWhub
                 OutputTxt.Text = "Initial amount of money has to be a number";
             }
             else
-            {
+            {           
                 var arbitrage = new Arbitrage(graph);
-                List<CurrencyVertex> path = arbitrage?.Find(moneyAtSource);
+                List<CurrencyVertex> path = arbitrage.Find(moneyAtSource);
                 string result;
                 if (path != null)
                 {
