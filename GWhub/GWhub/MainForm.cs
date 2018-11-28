@@ -7,7 +7,7 @@ namespace GWhub
 {
     public partial class MainForm : Form
     {
-        static readonly string IMG_PATH = @"D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\output\output.png";
+        static readonly string IMG_PATH = @"D:\Desktop\GWhub\2018Z_AISD_proj_ind_gr9\output\";
 
         public MainForm()
         {
