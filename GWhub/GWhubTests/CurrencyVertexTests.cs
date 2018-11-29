@@ -25,7 +25,7 @@ namespace GWhub.Tests
             Assert.AreEqual(curr.MoneyAt, 0);
             Assert.AreEqual(curr.ArbMoneyAt, 0);
             Assert.AreEqual(curr.MinDistance, int.MaxValue);
-            Assert.AreEqual(curr.ArbitrageMinDistance, int.MaxValue);
+            Assert.AreEqual(curr.ArbMinDistance, int.MaxValue);
         }
     }
 }

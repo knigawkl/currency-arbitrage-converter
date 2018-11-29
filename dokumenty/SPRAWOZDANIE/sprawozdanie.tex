@@ -47,7 +47,7 @@
 }
 \end{quote}
 
-\tab W przypadku takich danych program stwierdzi, iż są one poprawne - zostanie utworzony odpowiadający tym danym obraz. Użytkownik, po wybraniu pliku tekstowego (z zawartością taką jak powyższy przykład) poprzez kliknięcie przycisku \textit{Open File} oraz wybranie odpowiedniego pliku w eksploratorze, otrzyma okno programu takie jak przedstawia \textit{Rysunek 1}.
+\tab W przypadku takich danych program stwierdzi, iż są one poprawne - zostanie utworzony odpowiadający tym danym obraz. Użytkownik, po wybraniu pliku tekstowego (z zawartością taką jak powyższy przykład) poprzez kliknięcie przycisku \textit{Open File} oraz wybranie odpowiedniego pliku w eksploratorze, otrzyma okno programu takie jak przedstawia poniższy rysunek.
 
 \begin{figure}[H]
 \centering
@@ -56,11 +56,280 @@
 \label{fig:obrazek 2}
 \end{figure}
 
+\tab Spróbujmy więc dla otrzymanego grafu odnaleźć dowolny arbitraż a także kilka najbardziej opłacalnych wymian. Załóżmy wpisanie takich danych jak na poniższym rysunku.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] c
+\caption{Okno główne programu po wprowadzeniu walut początkowej i końcowej, a także wartości pieniężnych dla wymiany i arbitrażu}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Dla takich danych, uda się odnaleźć ścieżkę pomiędzy walutą oznaczoną symbolem \textit{EUR}, a także walutą oznaczoną symbolem \textit{USD}. Co można sprawdzić poprzez test manualny, czyli eufemistyczne wyrażenie na wpisanie ciągu znaków do kalkulatora, korzystniejszą wymianą, po uwzględnieniu opłat, jest wymiana w pierwszej kolejności waluty oznaczonej symbolem \textit{EUR} na walutę oznaczoną symbolem \textit{GBP}, a następnie wymiana tej waluty pośredniej na walutę oznaczoną symbolem \textit{USD}. W tym przypadku, po kliknięciu przycisku z napisem \textit{Exchange currency}, okno główne programu wyglądać będzie jak poniżej.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] d
+\caption{Okno główne programu po wybraniu opcji wyszukania najkorzystniejszej wymiany waluty}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab W przypadku wybrania opcji wykrywania arbitrażu, dla podanej wartości pieniężnej wykryta zostanie ścieżka arbitrażu przedstawiona poniżej.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] e
+\caption{Okno główne programu po wybraniu opcji wyszukania dowolnego arbitrażu}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Zaprezentowane wyniki zostały porównane z wynikami otrzymanymi podczas wykonywania testów manualnych. Bardzo niewielkie różnice wynikały z zaokrąglania wyników podczas liczenia manualnego. Należy zauważyć, że mimo że wyniki są przedstawiane ostatecznie z dwoma miejscami po przecinku, wartości nie zostają ograniczane takim ograniczeniem. Zdecydowano się na takie rozwiązanie, gdyż nie odnaleziono w treści polecenia informacji o zaokrąglaniu wyników przy każdej zachodzącej wymianie. Zmniejsza to realizm przedstawionej sytuacji, ale zważywszy na fakt, że cała sytuacja nie jest realistyczna, takie rozwiązanie jest dopuszczalne.
+\\\tab Spróbujmy teraz wprowadzić w polu waluty docelowej najkorzystniejszej wymiany symbol waluty podanej wcześniej jako waluta początkowa wymiany. Sprawdźmy, czy program został odpowiednio zabezpieczony na wypadek wystąpienia takiej sytuacji, tzn. co się stanie, gdy klikniemy przycisk opatrzony etykietą \textit{Exchange currency}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] f
+\caption{Okno główne programu po wprowadzeniu kontrowersyjnych danych}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Ku naszej uciesze, program nie miał problemów z rozpatrzeniem tak niewygodnych danych. Bo i owszem - do poszukiwań arbitrażu lepiej sprawdza się przycisk \textit{Find arbitrage}.
+\\\tab Sprawdźmy także, czy przypadkowe (lub nie) wystąpienie literówek w polach może zaszkodzić programowi. Poniżej przedstawiono serię rysunków przedstawiającą wprowadzone dane oraz reakcję programu. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] g
+\caption{Okno główne programu po wprowadzeniu nieistniejącej waluty jako waluta wejściowa}
+\label{fig:obrazek 2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] h
+\caption{Okno główne programu po wprowadzeniu nieistniejącej waluty jako waluta wyjściowa}
+\label{fig:obrazek 2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] i
+\caption{Okno główne programu po wprowadzeniu nieistniejącej waluty jako waluta wyjściowa}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Posłużymy się także plikiem wejściowym o poniższej zawartości. Spróbujmy dokonać rzeczy niemożliwych.
+\begin{quote}
+\textit{
+\# Waluty (id | symbol | pełna nazwa)
+\\0 EUR euro
+\\1 GBP funty brytyjski
+\\2 USD dolar amerykański
+\\\# Kursy walut (id | symbol (waluta wejściowa) | symbol (waluta wyjściowa) | kurs | typ opłaty | opłata
+\\0 EUR GBP 0,8889 PROC 0,0001
+\\1 GBP USD 1,2795 PROC 0
+\\2 EUR USD 1,137 STAŁA 0,025
+}
+\end{quote}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] j
+\caption{Okno główne programu po próbie wymiany między walutami, gdzie waluta docelowa nie jest osiągalna z waluty wejściowej}
+\label{fig:obrazek 2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] k
+\caption{Okno główne programu po próbie wyszukania arbitrażu w grafie, w którym nie ma cykli}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Rozważmy teraz wczytanie bardzo dużego grafu. Jego podgląd w oknie głównym programu jest bardzo nieczytelny, jednak bez problemu możemy graficzną reprezentację odnaleźć w folderze z obrazami wynikowymi.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] l
+\caption{Wczytano duży graf, nie bez kozery nazwany \textit{MASSIVE\_ATTACK}}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Przypadek tego grafu jest o tyle ciekawy, że w wielu sytuacjach chcąc odnaleźć najkorzystniejszą ścieżkę wymiany z danego wierzchołka do innego danego wierzchołka, po drodze napotykamy na możliwość wejścia w nieskończoną pętlę, przynoszącą nam zysk - znajdujemy po drodze arbitraż. W tej sytuacji, bez założenia jednokrotnego odwiedzania wierzchołków, którego w założeniach projektu nie odnaleziono, nie da się odnaleźć wartości pieniężnej w wierzchołku docelowym po dokonaniu najkorzystniejszej wymiany - gdyż zawsze da się znaleźć wymianę korzystniejszą. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] m
+\caption{Program jest zabezpieczony na takie sytuacje}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Spróbujmy więc znaleźć jeszcze w takim grafie arbitraż.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] n
+\caption{Jak można było odgadnąć, udało się wykryć arbitraż}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Pora przedstawić sposób reakcji programu na otrzymanie pliku wejściowego zawierającego błędy. Gdyby w pliku wejściowym, wśród linii opisujących kursy wymiany, znalazła się podana poniżej linia, program wypisałby na pole wynikowe informację o błędzie. 
+
+\begin{quote}
+\textit{
+3 USD EUR 0,8795 STAŁA 0,01 ala ma kota i brata lukasza
+}
+\end{quote}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] o
+\caption{Oczywiście program wykrył obecność zbyt wielu słów w omawianej linii}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Natomiast gdy zbyt wiele linii będzie zaczynało się od znaku symbolizującego początek linii zawierającej komentarz, błąd zostanie wyświetlony przed wczytaniem czegokolwiek z tego pliku.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] p
+\caption{Dodatkowy komentarz}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Zakładamy, że linie zawierające komentarze zawsze są takie same, co do znaku. Jeśli choćby jedna spacja nie będzie się zgadzać, wyświetlona zostanie informacja o błędnie sformatowanym pliku wejściowym.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] r
+\caption{Wadliwy pierwszy komentarz}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Analogicznie sytuacja wygląda przy drugiej linii zawierającej komentarz.
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] s
+\caption{Wadliwy drugi komentarz}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Nazwy pełne walut mogą być jedynie ciągami dowolnej długości, składającymi się z słów pisanych małymi literami. Poniższa linijka z pewnością łamie takie zasady.
+
+\begin{quote}
+\textit{
+1 GBP funty 123
+}
+\end{quote}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] t
+\caption{Wadliwa pełna nazwa waluty}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Indeksy możliwych wymian muszą być wpisane w zachowanej kolejności, zaczynając od zera. W tym przypadku błędna była trzecia z przedstawionych poniżej linijek.
+
+\begin{quote}
+\textit{
+0 EUR GBP 0,8889 PROC 0,0001
+\\1 GBP USD 1,2795 PROC 0
+\\88 EUR USD 1,1370 STAŁA 0,025
+\\3 USD EUR 0,8795 STAŁA 0,01
+}
+\end{quote}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] u
+\caption{Wadliwa pełna nazwa waluty}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Co oczywiste, indeks wymiany musi być liczbą całkowitą. 
+
+\begin{quote}
+\textit{
+szalalamruta USD EUR 0,8795 STAŁA 0,01
+}
+\end{quote}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] v
+\caption{Indeks takiej wymiany nie spełniałby wymogów}
+\label{fig:obrazek 2}
+\end{figure}
+
+\tab Analogicznie rozwiązano problem nieuporządkowanych indeksów walut, a także indeksów walut nie będących liczbami całkowitymi.
+
+\tab W pliku z danymi wejściowymi, nie może pojawić się symbol waluty inny, niż składający się z trzech wielkich liter. Rozpatrzmy poniższą linię.
+
+\begin{quote}
+\textit{
+0 EU euro
+}
+\end{quote}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] w
+\caption{Niemożliwy symbol}
+\label{fig:obrazek 2}
+\end{figure} 
+
+\tab Analogicznie, odpowiednia informacja o błędzie zostałaby wyświetlona, gdyby symbol był trzyliterowy, lecz litery byłyby małe.
+
+\tab Odpowiednie błędy zostanę także ukazane, jeśli wartość kursu lub wartość opłaty nie będzie liczbą. Weźmy dla przykładu taką linię jak poniższa. 
+\begin{quote}
+\textit{
+2 EUR USD 1,1370 STAŁA HAKUNAMATATA
+}
+\end{quote}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] x
+\caption{W tym przypadku, mamy do czynienia z nierealną wartością opłaty stałej}
+\label{fig:obrazek 2}
+\end{figure} 
+
+\tab Jeśli podany symbol dla waluty początkowej lub końcowej danej wymiany nie został wcześniej dodany do symboli walutowych, wykryty zostaje błąd. Przykład reakcji programu poniżej. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] y
+\caption{W jednej z wymian użyto symbolu waluty, która nie została zdefiniowana}
+\label{fig:obrazek 2}
+\end{figure} 
+
+\tab Jeśli w linii walutowej lub w linii wymiany liczba wyrazów będzie zbyt mała, program z góry wykryje podstęp.
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] z
+\caption{Zbyt mało elementów w linii}
+\label{fig:obrazek 2}
+\end{figure} 
+
+\tab Została obsłużona także sytuacja, w której jako rodzaj opłaty podano słowo inne niż \textit{PROC} lub \textit{STAŁA}. Załóżmy poniższą linijkę.
+\begin{quote}
+\textit{
+2 EUR USD 1,1370 SONIA 0,025
+}
+\end{quote}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm] 1
+\caption{Program nie zna takiego rodzaju opłaty}
+\label{fig:obrazek 2}
+\end{figure} 
+
 \section{Zmiany względem specyfikacji}
 
 \subsection{Zmiany względem specyfikacji funkcjonalnej}
 
-\tab Nie powstało wiele różnic pomiędzy założeniami specyfikacji funkcjonalnej a faktyczną realizacją projektu. Nieco inaczej wygląda okno główne programu, przy czym drobne zmiany były przewidywane, stąd też wygląd okna głównego w specyfikacji funkcjonalnej został przedstawiony jako prototyp. Na \textit{Rysunku 1} przedstawiono porównanie wersji okna. Najbardziej istotną zmianą jest zrezygnowanie z możliwości wprowadzania danych wejściowych poprzez pole tekstowe będące częścią okna głównego. W zamian w tym samym miejscu umieszczono pole, w którym wyświetlana może być graficzna reprezentacja wczytanego grafu. 
+\tab Nie powstało wiele różnic pomiędzy założeniami specyfikacji funkcjonalnej a faktyczną realizacją projektu. Nieco inaczej wygląda okno główne programu, przy czym drobne zmiany były przewidywane, stąd też wygląd okna głównego w specyfikacji funkcjonalnej został przedstawiony jako prototyp. Na poniższym rysunku przedstawiono porównanie wersji okna. Najbardziej istotną zmianą jest zrezygnowanie z możliwości wprowadzania danych wejściowych poprzez pole tekstowe będące częścią okna głównego. W zamian w tym samym miejscu umieszczono pole, w którym wyświetlana może być graficzna reprezentacja wczytanego grafu. 
 \\\tab Pozostałe zmiany dotyczące wyglądu graficznego interfejsu użytkownika programu są kosmetyczne. Dodano pole, w które należy wpisać walutę początkową przy wybraniu opcji konwersji walut. Pole, w którym pojawiają się dane wyjściowe, zostało wzbogacone o pasek boczny, który umożliwiłby odczytanie całego wyniku działania programu, gdyby ten nie zmieścił się w polu. Zrezygnowano z jakichkolwiek zsynchronizowanych przycisków (jak te przy opcji wymiany walut oraz opcji arbitrażu w prototypie okna głównego), gdyż zastosowanie takiego rozwiązania wydaje się być bezzasadne. Poszczególne komponenty mogły zostać przemieszczone w obrębie okna. 
 
 \begin{figure}[H]
@@ -73,10 +342,10 @@
 \tab Zaszły liczne zmiany w stosunku do \textit{specyfikacji funkcjonalnej}, jeśli chodzi o sposób obsługi sytuacji wyjątkowych. Jakiekolwiek komunikaty o błędach, czy to związanych z wadliwym plikiem wejściowym, czy też z niepoprawnymi wartościami wpisywanymi w pola graficznego interfejsu, zdecydowano się wyświetlać w tym samym polu, w którym wyświetlane są dane wynikowe. Wszystkie przewidziane w \textit{specyfikacji funkcjonalnej} sytuacje wyjątkowe udało się obsłużyć, generując inne komunikaty, lecz tożsame w sensie znaczeniowym. Dodano więcej przewidzianych sytuacji wyjątkowych, a wszystkie zostały krótko omówione na przykładzie w sekcji \textit{Efekty działania programu}.
 \subsection{Zmiany względem specyfikacji implementacyjnej}
 
-\tab Zdecydowanie więcej różnic niż pomiędzy wersją ostateczną projektu a założeniami specyfikacji funkcjonalnej można odnaleźć pomiędzy ostateczną wersją programu a założeniami specyfikacji implementacyjnej. 
-\\\tab Klasę \textit{Visionary}, która pierwotnie miała zawierać metodę odnajdującą arbitraż, oraz metodą odnajdującą najkorzystniejszą ścieżkę pomiędzy danymi walutami, zdecydowano się podzielić na dwie klasy, obarczone węższym zakresem odpowiedzialności. Idąc tym tropem, klasa \textit{Arbitrage} umożliwia odnalezienie ścieżki arbitrażu, a klasa \textit{Best Exchange} wspiera wyszukiwanie najkorzystniejszej ścieżki wymiany. Obie te klasy posiadają swoje metody do wygenerowania napisu będącego efektem wyszukiwania - sklejane są symbole kolejnych walut, a także na początku dodawana jest wartość pieniężna w walucie początkowej, a na końcu wartość pieniężna w walucie końcowej. 
+\tab Zdecydowanie więcej różnic niż pomiędzy wersją ostateczną projektu, a założeniami specyfikacji funkcjonalnej, można odnaleźć pomiędzy ostateczną wersją programu, a założeniami specyfikacji implementacyjnej. 
+\\\tab Klasę \textit{Visionary}, która pierwotnie miała zawierać metodę odnajdującą arbitraż, oraz metodę odnajdującą najkorzystniejszą ścieżkę pomiędzy danymi walutami, zdecydowano się podzielić na dwie klasy, obarczone węższym zakresem odpowiedzialności. Idąc tym tropem, klasa \textit{Arbitrage} umożliwia odnalezienie ścieżki arbitrażu, a klasa \textit{Best Exchange} wspiera wyszukiwanie najkorzystniejszej ścieżki wymiany. Obie te klasy posiadają swoje metody do wygenerowania napisu będącego efektem wyszukiwania - sklejane są symbole kolejnych walut, a także na początku dodawana jest wartość pieniężna w walucie początkowej, a na końcu wartość pieniężna w walucie końcowej. 
 \\\tab W klasie \textit{Parser} zrezygnowano z wykorzystania typu wyliczeniowego przy rozróżnianiu rodzaju danej linii. Ze względu na nieskomplikowaną strukturę plików wejściowych, zdecydowano się problem rodzaju linii rozwiązać znacznie prościej, wykorzystują fakt, iż linie pomiędzy pierwszym a drugim komentarzem to linie przedstawiające waluty, a linie po drugim komentarzu przedstawiają połączenia między tymi walutami - kursy wymiany. Sama metoda wczytująca dane wejściowe w pierwotnej wersji nie zwracała danych, natomiast w wersji ostatecznej zwraca obiekt typu \textit{Digraph}. Obiekt ten jest reprezentacją grafu skierowanego.
-\\\tab Wspomniana powyżej klasa \textit{Digraph} jest odpowiednikiem klasy \textit{Graph} ze specyfikacji funkcjonalnej. Pierwotna nazwa klasy była identyczna jak nazwa klasy reprezentującej graf w bibliotece wspomagające rysowanie grafu, stąd też zmiana. W celu umożliwienia rysowania grafu, do klasy reprezentującej graf skierowany w omawianym projekcie zostały dodane metody: \textit{Draw}, \textit{AddEdges}, \textit{AddNodes} oraz \textit{SaveGraphAsImg}. Dzięki zaimportowaniu \textit{Microsoft.Msagl.Drawing} oraz \textit{Microsoft.Msagl.GraphViewerGdi} tworzenie graficznych reprezentacji grafów nie zajęło ani dużo czasu, ani nie zajmuje wielu linijek w kodzie.
+\\\tab Wspomniana powyżej klasa \textit{Digraph} jest odpowiednikiem klasy \textit{Graph} ze specyfikacji implementacyjnej. Pierwotna nazwa klasy była identyczna jak nazwa klasy reprezentującej graf w bibliotece wspomagające rysowanie grafu, stąd też zmiana. W celu umożliwienia rysowania grafu, do klasy reprezentującej graf skierowany w omawianym projekcie zostały dodane metody: \textit{Draw}, \textit{AddEdges}, \textit{AddNodes} oraz \textit{SaveGraphAsImg}. Dzięki zaimportowaniu \textit{Microsoft.Msagl.Drawing} oraz \textit{Microsoft.Msagl.GraphViewerGdi}, tworzenie graficznych reprezentacji grafów nie zajęło ani dużo czasu, ani nie zajmuje wielu linijek w kodzie.
 \section{Wnioski}
 
 \begin{enumerate}
@@ -86,6 +355,13 @@
 \item Pomimo wielu nieznacznych różnic obecnej implementacji z założeniami specyfikacji implementacyjnej, udało się podtrzymać wszystkie główne idee z obu specyfikacji. 
 \item Kosztem stosunkowo niewielkiego wysiłku program można rozszerzyć o funkcję zaznaczania na podglądzie grafu (tym samym także na obrazach znajdujących się w folderze z obrazami wynikowymi) wierzchołków lub krawędzi obecnych w wynikowej ścieżce - czy to symbolizującej wierzchołki arbitrażu, czy to kolejne wierzchołki biorące udział w wymianie.
 \item Dzięki dodaniu funkcji graficznego przedstawienia danych wejściowych można szybko upewnić się, czy nie popełniło się błędu przy wprowadzaniu danych
+\item Konieczność stosowania się do bardzo ścisłych reguł przy tworzeniu pliku wejściowego, między innymi konieczność nadawania walutom pełnych nazw zawierających jedynie małe litery, może wprowadzić w złość użytkownika, który dopiero zaczął pracę z programem. Jednak po jego dłuższym użytkowaniu, taki porządek można uznać za zaletę, pliki wejściowe są bardzo czytelne.
+\item Algorytm \textit{Bellmana-Forda} pozwolił uporać się z problemem, jednak absolutnie nie jest jedynym rozwiązaniem. Możliwe byłoby otrzymanie takich samych rezultatów przy zastosowaniu \textit{przeszukiwania wszerz} bądź \textit{przeszukiwania w głąb}. W wielu sytuacjach korzystniejsze pod względem złożoności czasowej byłoby zapewne zastosowanie wersji algorytmu \textit{Bellmana-Forda} nieco bliższej programowaniu dynamicznemu.
+\item Program można bardzo łatwo rozbudować o możliwość wpisywania danych wejściowych bezpośrednio do pola będącego częścią okna głównego programu. Ułatwiłoby to pracę z programem użytkownikom posługującym się jednym monitorem.
+\item W przypadku, gdy wprowadzanych walut i/lub kursów jest wiele, podgląd grafu dostępny z poziomu okna głównego programu staje się bardzo nieczytelny. W ramach polepszania doświadczeń użytkownika z programem można dość łatwo zaimplementować możliwość przybliżania i oddalania wygenerowanego obrazu, a także poruszania się po nim dzięki poziomemu i pionowemu paskowi. Jednak podczas gdy wszystkie wygenerowane obrazy i tak trafiają do specjalnego folderu, takie rozszerzenie wydaje się być mało istotne. Niemniej jednak, ułatwiłoby ono pracę z programem użytkownikom posługującym się jednym monitorem.
+\item Chęć napisania szybkiego prototypu programu, który miał być sukcesywnie usprawniany, wpłynęła negatywnie na jakość generowanego kodu. Założenie, że dokonamy w przyszłości refaktoryzacji niskiej jakości kodu jest bardzo ryzykowne - należało od samego początku przykładać dużą wagę do jakości kodu.
+\item Pisanie testów jednostkowych do programów z graficznym interfejsem użytkownika nie jest łatwe, a taki interfejs użytkownika często ułatwia przeprowadzanie testów manualnych.
+\item Rzeczywisty czas działania programu nie jest prosty do zmierzenia, lecz w praktyce jakiekolwiek operacje na realnych zbiorach danych (tzn. liczba walut nie przekracza liczby walut dostępnych obecnie na świecie) nie zajmują dłużej niż 1 sekunda. Znaczna część czasu działania programu przypada na wygenerowanie obrazu i podmienienie obecnie prezentowanego obrazu w graficznym interfejsie na nowy obraz.
 
 \end{enumerate}
 

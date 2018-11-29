@@ -6,7 +6,7 @@ namespace GWhub
 {
     public class Arbitrage
     {
-        private Digraph digraph;
+        private readonly Digraph digraph;
         private List<CurrencyVertex> vertices;
         private List<ExchangeEdge> edges;
 
@@ -79,22 +79,22 @@ namespace GWhub
                 }
 
                 
-                vertices[i].ArbitrageMinDistance = 0;
+                vertices[i].ArbMinDistance = 0;
 
                 for (int k = 0; k < vertices.Count - 1; ++k)
                 {
                     foreach (var edge in edges)
                     {
-                        if (edge.StartVertex.ArbitrageMinDistance == int.MaxValue)
+                        if (edge.StartVertex.ArbMinDistance == int.MaxValue)
                         {
                             continue;
                         }
 
-                        double newArbDistance = edge.StartVertex.ArbitrageMinDistance + edge.Weight;
+                        double newArbDistance = edge.StartVertex.ArbMinDistance + edge.Weight;
 
-                        if (newArbDistance < edge.FinishVertex.ArbitrageMinDistance)
+                        if (newArbDistance < edge.FinishVertex.ArbMinDistance)
                         {
-                            edge.FinishVertex.ArbitrageMinDistance = newArbDistance;
+                            edge.FinishVertex.ArbMinDistance = newArbDistance;
                             edge.FinishVertex.ArbPrev = edge.StartVertex;
                         }
                     }
@@ -104,7 +104,7 @@ namespace GWhub
 
                 foreach (var edge in edges)
                 {
-                    if (HasCycle(edge) && edge.StartVertex.ArbitrageMinDistance != int.MaxValue)
+                    if (HasCycle(edge) && edge.StartVertex.ArbMinDistance != int.MaxValue)
                     {
                         CurrencyVertex vertex = edge.StartVertex;
 
@@ -126,7 +126,7 @@ namespace GWhub
 
         private bool HasCycle(ExchangeEdge edge)
         {
-            return edge.FinishVertex.ArbitrageMinDistance > edge.StartVertex.ArbitrageMinDistance + edge.Weight;
+            return edge.FinishVertex.ArbMinDistance > edge.StartVertex.ArbMinDistance + edge.Weight;
         }
 
         public string GenerateOutput(List<CurrencyVertex> path, double startMoney)
@@ -159,11 +159,9 @@ namespace GWhub
                 sb.Append(" ");
                 sb.Append(path[0].Symbol);
             }
-
             return sb.ToString();
         }
 
         public double Inverse(double money) => 1 / money;
-
     }  
 }

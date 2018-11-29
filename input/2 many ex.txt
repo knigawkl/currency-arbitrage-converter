@@ -6,4 +6,4 @@
 0 EUR GBP 0,8889 PROC 0,0001
 1 GBP USD 1,2795 PROC 0
 2 EUR USD 1,1370 STAŁA 0,025
-3 USD EUR 0,8795 STAŁA 0,01 ala ma kota i brata lukasza serio
+3 USD EUR 0,8795 STAŁA 0,01 ala ma kota i brata lukasza
