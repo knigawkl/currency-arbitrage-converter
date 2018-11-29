@@ -21,6 +21,7 @@ namespace GWhub
         {
             src.MoneyAt = moneyAtStart;
             src.MinDistance = 0;
+            moneyAtFinish = 0;
 
             foreach (var edge in edges)
             {
@@ -68,6 +69,10 @@ namespace GWhub
             while (last.Prev != first)
             {
                 last = last.Prev;
+                if (last == null)
+                {
+                    return null;
+                }
                 path.Add(last);
             }
             path.Add(src);

@@ -63,10 +63,24 @@ namespace GWhub
             else
             {
                 var exchange = new BestExchange(graph);
-                List<CurrencyVertex> path = exchange.Find(from, to, moneyAtSource, out double moneyAtFinish);
-
-                var outputText = exchange.GenerateOutput(path);
-                OutputTxt.Text = outputText;                
+                try
+                {
+                    List<CurrencyVertex> path = exchange.Find(from, to, moneyAtSource, out double moneyAtFinish);
+                    if (path == null)
+                    {
+                        OutputTxt.Text = "There is no exchange possible between given currencies";
+                    }
+                    else
+                    {
+                        var outputText = exchange.GenerateOutput(path);
+                        OutputTxt.Text = outputText;
+                    }
+                } 
+                catch (OutOfMemoryException)
+                {
+                    OutputTxt.Text = "There is an infinite arbitrage on the way!";
+                }
+                                
             }
             GraphImg.Focus();
         }
@@ -89,7 +103,7 @@ namespace GWhub
                 string result;
                 if (path != null)
                 {
-                    result = arbitrage.PrintOutput(path, moneyAtSource);
+                    result = arbitrage.GenerateOutput(path, moneyAtSource);
                 }
                 else
                 {

@@ -129,7 +129,7 @@ namespace GWhub
             return edge.FinishVertex.ArbitrageMinDistance > edge.StartVertex.ArbitrageMinDistance + edge.Weight;
         }
 
-        public string PrintOutput(List<CurrencyVertex> path, double startMoney)
+        public string GenerateOutput(List<CurrencyVertex> path, double startMoney)
         {
             StringBuilder sb = new StringBuilder();
             if (path.Count != 0)

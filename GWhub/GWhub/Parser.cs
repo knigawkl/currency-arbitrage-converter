@@ -44,7 +44,7 @@ namespace GWhub
                 }
                 else if (!lines.FindLast(x => x.StartsWith("#")).Equals("# Kursy walut (id | symbol (waluta wejściowa) | symbol (waluta wyjściowa) | kurs | typ opłaty | opłata"))
                 {
-                    throw new Exception("The 2nd comment line not correct. Expected: # Waluty (id | symbol | pełna nazwa)");
+                    throw new Exception("The 2nd comment line not correct. Expected: # Kursy walut (id | symbol (waluta wejściowa) | symbol (waluta wyjściowa) | kurs | typ opłaty | opłata");
                 }
 
                 int secondCommentLine = lines.FindLastIndex(x => x.StartsWith("#"));

@@ -45,6 +45,7 @@
             this.GraphImg = new System.Windows.Forms.PictureBox();
             this.FromTxt = new System.Windows.Forms.TextBox();
             this.FromLbl = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GraphImg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -197,11 +198,22 @@
             this.FromLbl.TabIndex = 23;
             this.FromLbl.Text = "From";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(14, 71);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(275, 17);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Graph preview (hq image in output folder):";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 515);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.FromLbl);
             this.Controls.Add(this.FromTxt);
             this.Controls.Add(this.GraphImg);
@@ -247,6 +259,7 @@
         private System.Windows.Forms.PictureBox GraphImg;
         private System.Windows.Forms.TextBox FromTxt;
         private System.Windows.Forms.Label FromLbl;
+        private System.Windows.Forms.Label label6;
     }
 }
 
